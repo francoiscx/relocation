@@ -153,6 +153,11 @@ require_once 'inc/required/detect.php';
                                             unset($_SESSION['insurance']); 
                                             
                                             $needItem = "Please select at least one service other than Insurance<br>";   
+                                               
+
+                                            if($_SESSION['relocationType'] == "Residential" || $_SESSION['relocationType'] == "Commercial" || $_SESSION['relocationType'] == "International"){
+                                                unset($needItem);
+                                            }
                                             
                                     }
 

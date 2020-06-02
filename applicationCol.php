@@ -960,7 +960,7 @@ require_once 'inc/required/detect.php';
                             if(cFloor !== "Ground") {
                             document.getElementById("cLifts").style.display = "block";
                             }
-                            console.log(cLift);
+                            // console.log(cLift);
                             $('#cFloor').val(cFloor);
                     });
                     
@@ -1005,13 +1005,13 @@ require_once 'inc/required/detect.php';
                     });
 
                             // var cTonval = localStorage.getItem('cTonval');
-                            $('#cTruckTV').val(cTonval);
-                            console.log("cTonval: " + cTonval);
+                            // $('#cTruckTV').val(cTonval);
+                            // console.log("cTonval: " + cTonval);
                             
 
                             // var cHeival = localStorage.getItem('cHeival');
-                            $('#cTruckHV').val(cHeival);
-                            console.log("cHeival: " + cHeival);
+                            // $('#cTruckHV').val(cHeival);
+                            // console.log("cHeival: " + cHeival);
                 </script>
 
 <?php 

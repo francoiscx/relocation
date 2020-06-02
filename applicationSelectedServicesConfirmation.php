@@ -80,7 +80,7 @@ require_once 'inc/required/detect.php';
 
                                 <?php
                                     // SET THE secondary HEADDER "Are you sure..." OR "Can not help..."
-                                    if(isset($_SESSION['relocationType']) && ($_SESSION['relocationType'] == "I'm not relocating, just need something moved") || ($_SESSION['relocationType'] == "Other") &&
+                                    if(isset($_SESSION['relocationType']) && ($_SESSION['relocationType'] == "I'm not relocating, just need something moved") &&
                                     !isset($_SESSION['storage']) &&
                                     !isset($_SESSION['storage']) &&
                                     !isset($_SESSION['pet']) &&
@@ -252,8 +252,6 @@ require_once 'inc/required/detect.php';
                                         $relocationType = $_SESSION['relocationType'];
                                         if(isset($_POST['confirm'])) {
 
-                                            if($relocationType == "I'm not relocating, just need something moved") $relocationType = "Other"; $_SESSION['relocationType'] = $relocationType;
-
                                             if(isset($_SESSION['storage'])) {$storage = 1;} else {$storage = 0;}
                                             if(isset($_SESSION['pet'])) {$pet = 1;} else {$pet = 0;}
                                             if(isset($_SESSION['car'])) {$car = 1;} else {$car = 0;}
@@ -283,35 +281,32 @@ require_once 'inc/required/detect.php';
 
                                                     }
                                                 } else {
-                                                    if(isset($_SESSION['hasRecord'])) {
-                                                        //echo $_SESSION['hasRecord'] . "3"; // New Entery
+                                                    if(!isset($_SESSION['hasRecord'])) {
 
+                                                                //SQL statement to insert info as new entery
+                                                                $sqlInsert = "INSERT INTO app_details(applicant_id, app_type, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
+                                                                            VALUES(:appID, :relocationType, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";
+                                                                $statement = $db->prepare($sqlInsert);
+                                                                $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType, ':storage' => $storage , ':pet' => $pet , ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
+                                                                
+                                                                //check if one new row was created
+                                                                if($statement->rowCount() == 1){                        
+                                                                        //check for userID in database
+                                                                        $sqlQuery = "SELECT * FROM app_details WHERE applicant_id =:appID AND app_type =:relocationType";
+                                                                        $statement = $db->prepare($sqlQuery);
+                                                                        $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType));
+                                                                        
+                                                                        while($row = $statement->fetch()){
+                                                                            $appDetailID = $row['app_detail_id'];
+                                                                            $_SESSION['appDetailID'] = $appDetailID;
+                                                                            }
 
-
-                            //SQL statement to insert info as new entery
-                            $sqlInsert = "INSERT INTO app_details(applicant_id, app_type, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
-                                           VALUES(:appID, :relocationType, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";
-                            $statement = $db->prepare($sqlInsert);
-                            $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType, ':storage' => $storage , ':pet' => $pet , ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
-                            
-                            //check if one new row was created
-                            if($statement->rowCount() == 1){                        
-                                    //check for userID in database
-                                    $sqlQuery = "SELECT * FROM app_details WHERE applicant_id =:appID AND app_type =:relocationType";
-                                    $statement = $db->prepare($sqlQuery);
-                                    $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType));
-                                    
-                                    while($row = $statement->fetch()){
-                                        $appDetailID = $row['app_detail_id'];
-                                        $_SESSION['appDetailID'] = $appDetailID;
-                                        }
-
-                                      if(isset($appDetailID)) {
-                                        echo '<script>
-                                                location.replace("./applicationCol.php");
-                                              </script>';
-                                      } 
-                            }
+                                                                        if(isset($appDetailID)) {
+                                                                            echo '<script>
+                                                                                    location.replace("./applicationCol.php");
+                                                                                </script>';
+                                                                        } 
+                                                                }
 
 
                         } else {}
