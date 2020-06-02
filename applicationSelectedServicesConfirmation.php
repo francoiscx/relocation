@@ -24,7 +24,7 @@ require_once 'inc/required/detect.php';
         }
     }
 
-    if(isset($_SESSION['appDetailID'])) unset($_SESSION['appDetailID']);
+    if(isset($_SESSION['appDetailsID'])) unset($_SESSION['appDetailsID']);
     if(isset($_SESSION['hasRecord'])) unset($_SESSION['hasRecord']);
 
     if(isset($_SESSION['appID'])) {
@@ -266,14 +266,14 @@ require_once 'inc/required/detect.php';
                                                 if(denyDuplicateAT($db, $appID, $relocationType)){
 
                                                     if(isset($_SESSION['hasRecord'])) {} else {
-                                                        $appDetailID = $_SESSION['appDetailsID']; // Update
+                                                        $appDetailsID = $_SESSION['appDetailsID']; // Update
 
                                                         //SQL statement to update info
-                                                        $sqlUpdate = "UPDATE app_details SET storage =:storage, pet =:pet, car =:car, courier =:courier, shuttle =:shuttle, cleaning =:cleaning, wrapping =:wrapping, packing =:packing, insurance =:insurance WHERE app_detail_id =:appDetailID ";
+                                                        $sqlUpdate = "UPDATE app_details SET storage =:storage, pet =:pet, car =:car, courier =:courier, shuttle =:shuttle, cleaning =:cleaning, wrapping =:wrapping, packing =:packing, insurance =:insurance WHERE app_detail_id =:appDetailsID ";
                                                         $statement = $db->prepare($sqlUpdate);
-                                                        $statement->execute(array(':storage' => $storage, ':pet' => $pet, ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance, 'appDetailID' => $appDetailID));
+                                                        $statement->execute(array(':storage' => $storage, ':pet' => $pet, ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance, 'appDetailsID' => $appDetailsID));
 
-                                                        if(isset($appDetailID)) {
+                                                        if(isset($appDetailsID)) {
                                                             echo '<script>
                                                                     location.replace("./applicationCol.php");
                                                                 </script>';
@@ -297,11 +297,11 @@ require_once 'inc/required/detect.php';
                                                                         $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType));
                                                                         
                                                                         while($row = $statement->fetch()){
-                                                                            $appDetailID = $row['app_detail_id'];
-                                                                            $_SESSION['appDetailID'] = $appDetailID;
+                                                                            $appDetailsID = $row['app_detail_id'];
+                                                                            $_SESSION['appDetailsID'] = $appDetailsID;
                                                                             }
 
-                                                                        if(isset($appDetailID)) {
+                                                                        if(isset($appDetailsID)) {
                                                                             echo '<script>
                                                                                     location.replace("./applicationCol.php");
                                                                                 </script>';

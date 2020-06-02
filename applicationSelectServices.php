@@ -29,13 +29,13 @@ require_once 'inc/required/detect.php';
         $appID = $_SESSION['appID'];
 
 
-        if(isset($_SESSION['appDetailID'])) {
-            $appDetailID = $_SESSION['appDetailID'];
+        if(isset($_SESSION['appDetailsID'])) {
+            $appDetailsID = $_SESSION['appDetailsID'];
 
 
-            $sqlQuery = "SELECT * FROM app_details WHERE app_detail_id =:appDetailID";
+            $sqlQuery = "SELECT * FROM app_details WHERE app_detail_id =:appDetailsID";
                 $statement = $db->prepare($sqlQuery);
-                $statement->execute(array(':appDetailID' => $appDetailID));
+                $statement->execute(array(':appDetailsID' => $appDetailsID));
                 
                 while($row = $statement->fetch()){
 
@@ -179,7 +179,7 @@ require_once 'inc/required/detect.php';
                             unset($_POST['submit']);
                             unset($_POST['moveType']);
                             unset($_POST['selectedExtra']);
-                            unset($_SESSION['appDetailID']);
+                            unset($_SESSION['appDetailsID']);
 
                             if(!isset($needItem)) echo '
                                 <script>

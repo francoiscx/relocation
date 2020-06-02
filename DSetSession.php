@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['appDetailsID'])) $appDetailID = $_SESSION['appDetailsID'];
+if(isset($_SESSION['appDetailsID'])) $appDetailsID = $_SESSION['appDetailsID'];
 
 
 

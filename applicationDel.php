@@ -76,7 +76,11 @@ require_once 'inc/required/detect.php';
                 }
     
                 if(!isset($_SESSION['dLiftsV'])){
-                    $error = $error . "<br>Is ther a lift available?";
+                    if($_SESSION['dFloor'] != "Ground") {
+                    $error = $error . "<br>Is there a lift available?";
+                    } else {
+                        $_SESSION['dLiftsV'] = 0;
+                    }
                 }
     
                 if(!isset($_SESSION['dTruck'])){

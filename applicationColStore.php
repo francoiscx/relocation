@@ -1,6 +1,6 @@
 <?php
 
-        $appDetailID = $_SESSION['appDetailsID'];
+        $appDetailsID = $_SESSION['appDetailsID'];
 
             if(isset($appID)) {
                 unset($notset);
@@ -10,7 +10,7 @@
                         //SQL statement to update info
                         $sqlUpdate = "UPDATE app_details SET c_country =:cCountry WHERE app_detail_id =:appDetailsID";
                         $statement = $db->prepare($sqlUpdate);
-                        $statement->execute(array(':cCountry' => $cCountry, ':appDetailsID' => $appDetailID));
+                        $statement->execute(array(':cCountry' => $cCountry, ':appDetailsID' => $appDetailsID));
                             if($statement->rowCount() > 0){
                             // means updated
                             $_SESSION['cCountryUpdate'] = 1;

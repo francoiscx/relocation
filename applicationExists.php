@@ -76,28 +76,28 @@ include_once 'inc/required/utilities.php';
 
                 if(isset($_POST['resBtn'])) {
                     unset($_POST['resBtn']);
-                    $_SESSION['appDetailID'] = $_SESSION['appRes'];
+                    $_SESSION['appDetailsID'] = $_SESSION['appRes'];
                     $_SESSION['relocationType'] = "Residential";
                     header("Location: ./applicationSelectServices.php");
                 }
 
                 if(isset($_POST['comBtn'])) {
                     unset($_POST['comBtn']);
-                    $_SESSION['appDetailID'] = $_SESSION['appCom'];
+                    $_SESSION['appDetailsID'] = $_SESSION['appCom'];
                     $_SESSION['relocationType'] = "Commercial";
                     header("Location: ./applicationSelectServices.php");
                 }
 
                 if(isset($_POST['intBtn'])) {
                     unset($_POST['intBtn']);
-                    $_SESSION['appDetailID'] = $_SESSION['appInt'];
+                    $_SESSION['appDetailsID'] = $_SESSION['appInt'];
                     $_SESSION['relocationType'] = "International";
                     header("Location: ./applicationSelectServices.php");
                 }
 
                 if(isset($_POST['otherBtn'])) {
                     unset($_POST['otherBtn']);
-                    $_SESSION['appDetailID'] = $_SESSION['appOther'];
+                    $_SESSION['appDetailsID'] = $_SESSION['appOther'];
                     $_SESSION['relocationType'] = "Other";
                     header("Location: ./applicationSelectServices.php");
                 }

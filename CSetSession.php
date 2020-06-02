@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['appDetailsID'])) $appDetailID = $_SESSION['appDetailsID'];
+if(isset($_SESSION['appDetailsID'])) $appDetailsID = $_SESSION['appDetailsID'];
 
 
 
@@ -56,6 +56,12 @@ if(isset($_POST['cApUnName'])) {
 if(isset($_POST['cFloor'])) {
     $cFloor = $_POST['cFloor'];
     $_SESSION['cFloor'] = $cFloor;
+    if($_SESSION['cFloor' == "Ground"]) {
+        $_SESSION['cLiftsV'] = 0;
+    }
+}
+if(isset($_SESSION['cLiftsV']) && ($_SESSION['cLiftsV'] == "")) {
+    $_SESSION['cLiftsV'] = 0;
 }
 
 
@@ -63,6 +69,7 @@ if(isset($_POST['cLift'])) {
     $cLift = $_POST['cLift'];
     $_SESSION['cLiftsV'] = $cLift;
 }
+
 
 
 if(isset($_POST['cTruckoptions'])) {

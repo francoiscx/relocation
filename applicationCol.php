@@ -76,7 +76,11 @@ require_once 'inc/required/detect.php';
                 }
     
                 if(!isset($_SESSION['cLiftsV'])){
-                    $error = $error . "<br>Is ther a lift available?";
+                    if($_SESSION['cFloor'] != "Ground") {
+                    $error = $error . "<br>Is there a lift available?";
+                    } else {
+                        $_SESSION['cLiftsV'] = 0;
+                    }
                 }
     
                 if(!isset($_SESSION['cTruck'])){
@@ -97,7 +101,7 @@ require_once 'inc/required/detect.php';
                         }
                     }
                 }
-    
+    echo $error;
     
                 if(!isset($_SESSION['cIdReq'])){
                     $error = $error . "<br>Does the movers require their ID's to enter the premisis?";
@@ -142,7 +146,7 @@ require_once 'inc/required/detect.php';
                             if(!isset($_SESSION['cApUnNr'])) $_SESSION['cApUnNr'] = $cApUnNr;
                             if(!isset($_SESSION['cApUnName'])) $_SESSION['cApUnName'] = $cApUnName;
                             if(!isset($_SESSION['cFloor'])) $_SESSION['cFloor'] = $cFloor;
-                            if(!isset($_SESSION['cLiftsV']))  $_SESSION['cLiftsV'] = $cLiftsV;
+                            if(!isset($_SESSION['cLiftsV'])) $_SESSION['cLiftsV'] = $cLiftsV;
                             if(!isset($_SESSION['cTruck'])) $_SESSION['cTruck'] = $cTruck;
                             if(!isset($_SESSION['cTruckTI'])) $_SESSION['cTruckTI'] = $cTruckTI;
                             if(!isset($_SESSION['cTruckHV'])) $_SESSION['cTruckHV'] = $cTruckHV;
@@ -396,7 +400,7 @@ require_once 'inc/required/detect.php';
                                                             <button class="btn btn-primary" type="button"  style="background-color:#fcfcfc;color:red;" onclick="goBack()">Go Back</button>
                                                             
                                                             <form action="" method="post">
-                                                                <input type="submit" name="CBtn" value="Submit Details" class="btn btn-block btn-success" style="float:right; max-width:265px;padding:5px 12px!important;">
+                                                                <input type="submit" name="CBtn" id="CBtn" value="Submit Details" class="btn btn-block btn-success" style="float:right; max-width:265px;padding:5px 12px!important;">
                                                             </form>
                                                         
                                                         </div>
@@ -991,7 +995,7 @@ require_once 'inc/required/detect.php';
 
                             if(cTruckoption == "Height") {
                             document.getElementById("cTruckTH").style.display = "block";
-                            $('#cTruckHV').val(cHeival);
+                            // $('#cTruckHV').val(cHeival);
                             }
                             
                             if(cTruckoption == "Tonnage") {

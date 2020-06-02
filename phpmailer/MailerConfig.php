@@ -17,5 +17,5 @@ $mail->Port = "25";                               // SMTP password
 
 // Set who the email is coming from
 $mail->From = 'donotreply@demoprojects.co.za';
-$mail->FromName = 'Do not reply - Moving Quotes';
+$mail->FromName = 'Do not reply - Relocation Stration';
 ?>

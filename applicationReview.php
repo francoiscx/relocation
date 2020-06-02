@@ -218,7 +218,7 @@ if(($_SESSION['relocationType'] == "Other") &&
                         unset($_POST['submit']);
                         unset($_POST['moveType']);
                         unset($_POST['selectedExtra']);
-                        unset($_SESSION['appDetailID']);
+                        unset($_SESSION['appDetailsID']);
 
                         if(!isset($needItem)) echo '
                         <script>
@@ -468,7 +468,7 @@ This submission is done by me in order to request quotations for a <b>' . $_SESS
                                             <div class="form-group">
                                                 <select name="moveType" class="form-control" id='relocationType' name='relocationType' required="required">
                                                     <option disabled value="">Select Relocation Type</option>
-                                                    <option disabled value="Other" <?php if(isset($_SESSION['relocationType']) && $_SESSION['relocationType'] == "Other") echo "selected";?>>I'm not relocating, just need something moved</option>
+                                                    <option disabled value="I'm not relocating, just need something moved" <?php if(isset($_SESSION['relocationType']) && $_SESSION['relocationType'] == "I'm not relocating, just need something moved") echo "selected";?>>I'm not relocating, just need something moved</option>
                                                     <option disabled value="Residential" <?php if(isset($_SESSION['relocationType']) && $_SESSION['relocationType'] == "Residential") echo "selected";?>>Residential</option>
                                                     <option disabled value="Commercial" <?php if(isset($_SESSION['relocationType']) && $_SESSION['relocationType'] == "Commercial") echo "selected";?>>Commercial</option>
                                                     <option disabled value="International" <?php if(isset($_SESSION['relocationType']) && $_SESSION['relocationType'] == "International") echo "selected";?>>International</option>
