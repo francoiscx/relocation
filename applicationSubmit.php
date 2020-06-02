@@ -43,6 +43,12 @@ if(isset($_SESSION['mobile'])) {$mobile = 1;} else {unset($mobile);
  if(isset($_SESSION['appID'])) {
         $appID = $_SESSION['appID'];
  }
+
+ if($_SESSION['relocationType'] != "I'm not relocating, just need something moved") {
+    $relacationType = $_SESSION['relocationType'];
+} else {
+    $relacationType = "Non-Relocation";
+}
 ?>
 
 <style>
@@ -99,6 +105,7 @@ i.icon.ion-social-instagram {
 if(!isset($emailSent)){
 include 'inc/required/head.php';
 include_once 'phpmailer/mail_sender/emailReq.php';
+include_once 'phpmailer/mail_sender/emailReqToClient.php';
 $emailSent = 1;
 }
 ?>
@@ -111,14 +118,26 @@ $emailSent = 1;
     <div id="backgrounddiv">
         <div class="container">
             <div class="row" style="margin-top:44px;">
-                <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Thank you for submitting your<br><span style="color:crimson">Residential Moving Requirements</span><br/>you will soon start to receive your <span style="color:crimson">Quotations</span> </h1><p style="text-align:center; color:#4A4A4A">
+                <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Thank you for submitting your<br><span style="color:crimson"><?php echo $relocationType;?> Moving Requirements</span><br/>you will soon start to receive your <span style="color:crimson">Quotations</span> </h1><p style="text-align:center; color:#4A4A4A">
                     <br/></p>
                     <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba(221,27,61,1.00);: -83px;margin: 0px 17px;"></h1></div>
                 </div>
             </div>
 
         <form method="get" action="files/relocationStationInventory.xlsx">
-        <a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download inventory list!</button></a>
+        <?php
+        if(isset($_SESSION['relocationType'])){
+            if($_SESSION['relocationType'] == "Commercial"){
+            echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download Commercial Inventory List!</button></a>';
+            }
+            if($_SESSION['relocationType'] == "Residential"){
+                echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download Residential Inventory List!</button></a>';
+            }
+            if($_SESSION['relocationType'] == "International"){
+                echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download International Inventory List!</button></a>';
+            }
+        }
+        ?>
         </form>
         
         <br><br>
@@ -131,7 +150,7 @@ $emailSent = 1;
 
 <?php 
 echo "<h4>Hi " . $_SESSION['appName'] . "!</h4>
-Thank you for submitting your " . $_SESSION['relocationType'] . " Moving Quotation Request through the Relocation Station.
+Thank you for submitting your " . $relocationType . " Moving Quotation Request through the Relocation Station.
 <br> We received your request and you can expect communication from our partners soon.
 <br><br>
 Thanks again for using the Relocation Station.<br>

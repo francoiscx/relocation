@@ -357,9 +357,9 @@ Sizes: [
 															<table border="0" cellpadding="30" cellspacing="0" width="100%">
 <!-- Start of actual mail message -->	  						<tr>
 <!-- Purple block content starts here -->																	<td align="center" valign="top" class="textContent">
-																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Hi %agentname%!</h1>
+																		<h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Hi %appName% appSurname!</h1>
 																		<h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#bf3838;line-height:135%;"><!-- Wi-APP Password Reset Link --></h2>
-																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">We have a new %appType% move lead for you!</div>
+																		<div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">We just received your %appType% move request!</div>
 <!-- Purple block content ends here -->																	</td>
 																</tr>
 															</table>
@@ -444,7 +444,11 @@ Sizes: [
 												<!-- FLEXIBLE CONTAINER // -->
 												<table border="0" cellpadding="30" cellspacing="0" width="900" class="flexibleContainer">
 													<tr>
-														<td style="padding-top:0;" align="center" valign="top" width="900" class="flexibleContainerCell">
+                                                        <td style="padding-top:0;" align="center" valign="top" width="900" class="flexibleContainerCell">
+                                                            
+                                                            To upload your inventory list please use the link provided below.<br><br>
+                                                            
+                                                            <a href <?php echo $link;?>Upload Inventory List Link</a>
 
 															<!-- CONTENT TABLE // -->
 															<table border="0" cellpadding="0" cellspacing="0" width="50%" height="50px" class="emailButton" style="background-color: #bf3838;">
@@ -452,7 +456,7 @@ Sizes: [
 																	<td align="center" valign="middle" class="buttonContent" style="padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
                                                                     <!-- Call to action link and button text -->																		
                                                                     
-                                                                    The message reads as follow:
+                                                                    For your conveniance we also send you a copy of the message sent out to our partners. <br>The message reads as follow:
 																	</td>
 																				<td align="left" class="textContent">
                                                                     <!-- Call to action button image -->																				
@@ -502,10 +506,13 @@ Sizes: [
 <!-- Grey box content begins here -->																					<h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;"><!-- Use the link below to reset your password --></h3>
 																					<div mc:edit="body" style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">
                                                                                     
+
+
+
     <p>Please contact <b>%appName% %appSurname% via email at <b></b><a href="mailto:%appEmail%?subject=Relocation Staion Request">%appEmail%</a></b>.<br><br>
     Alternatively you may also contact %appName% on <b><a href="tel:%appCell%">%appCell%</a></b> for further information.<br><br> In the unlikely event where you can not get hold of him/her, and where it is urgent to do so, the person may be contacted on <b><a href="tel:%appWork%">%appWork%</a></b>.<br><br>
-	Please provide %appName% with a quotation for a <b>%appType% move </b>with details as follow:<br><br>
-	%addedServices% %pet% %car% %courier% %shuttle% %cleaning% %wrapping% %packing% %insurance%
+    Please provide %appName% with a quotation for a <b>%appType% move </b>with details as follow:<br><br>
+    %addedServices% %pet% %car% %courier% %shuttle% %cleaning% %wrapping% %packing% %insurance%
     <br><br>
 
     <h4>Collection</h4>

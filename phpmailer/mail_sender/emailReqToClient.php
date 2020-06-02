@@ -16,28 +16,21 @@ if(isset($_SESSION['pet']) || isset($_SESSION['car']) || isset ($_SESSION['couri
 
 
 if(isset($_SESSION['pet']) && ($_SESSION['pet'] == 1)) $pet = $_SESSION['pet'];
-if(isset($pet)) {$pet = "PET TRANSPORT - ";} else {$pet = "";}
-
+if(isset($pet)) $pet = "PET TRANSPORT - ";
 if(isset($_SESSION['car']) && ($_SESSION['car'] == 1)) $car = $_SESSION['car'];
-if(isset($car)) {$car = "CAR TRANSPORT - ";} else {$car = "";}
-
+if(isset($car)) $car = "CAR TRANSPORT - ";
 if(isset($_SESSION['courier']) && ($_SESSION['courier'] == 1)) $courier = $_SESSION['courier'];
-if(isset($courier)) {$courier = "COURIER SERVICES - ";} else {$courier = "";}
-
+if(isset($courier)) $courier = "COURIER SERVICES - ";
 if(isset($_SESSION['shuttle']) && ($_SESSION['shuttle'] == 1)) $shuttle = $_SESSION['shuttle'];
-if(isset($shuttle)) {$shuttle = "SHUTTLE SERVICES - ";} else {$shuttle = "";}
-
+if(isset($shuttle)) $shuttle = "SHUTTLE SERVICES - ";
 if(isset($_SESSION['cleaning']) && ($_SESSION['cleaning'] == 1)) $cleaning = $_SESSION['cleaning'];
-if(isset($cleaning)) {$cleaning = "CLEANING SERVICES - ";} else {$cleaning = "";}
-
+if(isset($cleaning)) $cleaning = "CLEANING SERVICES - ";
 if(isset($_SESSION['wrapping']) && ($_SESSION['wrapping'] == 1)) $wrapping = $_SESSION['wrapping'];
-if(isset($wrapping)) {$wrapping = "WRAPPING SERVICES - ";} else {$wrapping = "";}
-
+if(isset($wrapping)) $wrapping = "WRAPPING SERVICES - ";
 if(isset($_SESSION['packing']) && ($_SESSION['packing'] == 1)) $packing = $_SESSION['packing'];
-if(isset($packing)) {$packing = "PACKAGING SERVICES - ";} else {$packing = "";}
-
+if(isset($packing)) $packing = "PACKAGING SERVICES - ";
 if(isset($_SESSION['insurance']) && ($_SESSION['insurance'] == 1)) $insurance = $_SESSION['insurance'];
-if(isset($insurance)) {$insurance = "INSURANCE - ";} else {$insurance = "";}
+if(isset($insurance)) $insurance = "INSURANCE - ";
 
 
 
@@ -79,10 +72,9 @@ $agentname = "Legend's";
 require 'phpmailer/class.phpmailer.php';
 
 // Retrieve the email template required
-$message = file_get_contents('phpmailer/email_templates/emailReq.html');
+$message = file_get_contents('phpmailer/email_templates/emailReqToClient.html');
 
 // Replace the % with the actual information
-$message = str_replace('%agentname%', $agentname, $message);
 $message = str_replace('%appName%', $appName, $message);
 $message = str_replace('%appSurname%', $appSurname, $message);
 $message = str_replace('%appEmail%', $appEmail, $message);
@@ -139,9 +131,13 @@ $message = str_replace('%dIDReq%', $dIdReq, $message);
 
 $message = str_replace('%year%', $year, $message);
 
-//$aemail = "michael@legendremovals.co.za";
 
-$aemail = "mail@francoisjoubert.me";
+$appEmail = $_SESSION['appEmail'];
+//$appEmail = "michael@legendremovals.co.za";
+
+
+// REMOVE THIS LINE BELOW TO ENABLE MAIL SENDING TO THE CLINET
+$appEmail = "mail@francoisjoubert.me";
 
 
 // Setup PHPMailer
@@ -153,7 +149,7 @@ include_once 'phpmailer/MailerConfig.php';
 
 // Set who the email is sending to
 //$mail->AddAddress('josh@example.net', 'Josh Adams');  // Add a recipient
-$mail->AddAddress($aemail);                             // Name is optional
+$mail->AddAddress($appEmail);                             // Name is optional
 
 
 //$mail->AddReplyTo('info@example.com', 'Information');
@@ -166,15 +162,15 @@ $mail->WordWrap = 50;                                   // Set word wrap to 50 c
 $mail->IsHTML(true);                                    // Set email format to HTML
 
 // Set the subject
-$mail->Subject = 'New ' . $relocationType . ' lead from RELOCATION STATION';
+$mail->Subject = 'Your new ' . $relocationType . ' request via RELOCATION STATION';
 
 //Set the message
 $mail->MsgHTML($message);
 //$mail->AltBody(strip_tags($message));
-$mail->AltBody = 'New ' . $relocationType . ' lead from RELOCATION STATION';
+$mail->AltBody = 'Your new ' . $relocationType . ' request via RELOCATION STATION';
 
 if(!$mail->Send()) {
-   echo 'Message could not be sent.';
+   echo 'Message could not be sent to your email account, sorry.';
    echo 'Mailer Error: ' . $mail->ErrorInfo;
    exit;
 }
