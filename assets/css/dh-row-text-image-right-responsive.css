@@ -1,0 +1,27 @@
+.dh-header-non-rectangular-container h1, p {
+  color: #707070;
+  font-weight: bold;
+}
+
+.clearmargin {
+  margin: 0px;
+}
+
+.clearpadding {
+  padding: 0px;
+}
+
+.row-image-txt {
+  background-color: rgb(42,42,42);
+}
+
+.row-image-txt h1 {
+  color: white;
+}
+
+.row-image-txt p {
+  color: rgba(68,68,68,1.00);
+  z-index: 10;
+  padding: 0px 20px;
+}
+

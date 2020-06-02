@@ -1,0 +1,100 @@
+.header {
+  width: 100%;
+  margin-top: 97px;
+}
+
+.header-container {
+  background: url(../img/law-bg.jpg) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 50px 0 300px 0;
+  height: auto;
+}
+
+
+
+@media (min-width: 576px) {
+  #delivery {
+    float: right;
+    width: 216px;
+    top: 160px;
+    position: relative;
+  }
+}
+
+#delivery {
+  float: right;
+  width: 325px;
+  top: 175px;
+  position: relative;
+}
+
+
+.d-lg-flex.align-items-center.justify-content-lg-center.align-items-lg-center {
+  min-height: 97px;
+  min-width: 50%;
+  height: 50%;
+}
+
+@media (max-width:600px) {
+}
+
+#footrow {
+  margin: 0px 37px;
+}
+
+#4Center {
+  text-align: center;
+}
+
+
+#4Head {
+  text-align: center;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  background-color: rgb(191,56,56);
+  color: white;
+  padding: 5px 37px;
+  border: solid 1px rgb(191,56,56);
+  border-radius: 24px;
+}
+
+.button :active {
+  color: rgb(191,56,56);
+  padding: 5px 37px;
+  border: solid 1px white;
+  border-radius: 24px;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: rgb(191,56,56);
+  background-color: #ffffff;
+  border-color: #870f17;
+}
+
+.parallax {
+  background-image: url("http://heavenlygrant.com/legend/banner4.png");
+  min-height: 600px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -0px -20px;
+}
+
+#paraCard {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 600px;
+}
+
+.parablock {
+  margin: 0px -74px;
+}
+
+#partners {
+  text-align: center!important;
+}
+

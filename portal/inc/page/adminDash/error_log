@@ -1,0 +1,11 @@
+[02-Oct-2018 22:23:51 Africa/Johannesburg] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/erasmusm/beta.kia-data.com/inc/page/adminDash/adminDashboardGetterFunc/buildOneFile.php:36
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/inc/page/adminDash/byEmployee.php(263): include_once()
+#1 inc/page/adminDash/adminDashByEmployee.php(7): include_once('/home/erasmusm/...')
+#2 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/inc/page/adminDash/adminDashboardGetterFunc/buildOneFile.php on line 36
+[02-Oct-2018 22:24:01 Africa/Johannesburg] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/erasmusm/beta.kia-data.com/inc/page/adminDash/adminDashboardGetterFunc/buildOneFile.php:36
+Stack trace:
+#0 inc/page/adminDash/byEmployee.php(263): include_once()
+#1 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/inc/page/adminDash/adminDashboardGetterFunc/buildOneFile.php on line 36
