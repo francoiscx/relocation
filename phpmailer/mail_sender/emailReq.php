@@ -7,6 +7,8 @@ $appSurname = $_SESSION['appSurname'];
 $appEmail = $_SESSION['appEmail'];
 $appCell = $_SESSION['appCell'];
 $appWork = $_SESSION['appWork'];
+$link = "https://relocationstation.co.za/link.php?link=23223";
+$agentname = "Legend's";
 
 if(isset($_SESSION['pet']) || isset($_SESSION['car']) || isset ($_SESSION['courier']) || isset($_SESSION['shuttle']) || isset($_SESSION['cleaning']) || isset($_SESSION['wrapping']) || isset($_SESSION['packing'])) {
    $addedServices = "With the following Services: - ";
@@ -42,7 +44,8 @@ if(isset($insurance)) {$insurance = "INSURANCE - ";} else {$insurance = "";}
 
 
 if(isset($_SESSION['cApUnNr']) && ($_SESSION['cApUnNr'] != "0")) {$cApUnNr = $_SESSION['cApUnNr'];} else {$cApUnNr = "";}
-if(isset($_SESSION['cApUnName']) && ($_SESSION['cApUnName'] != "0")) {$cApUnName = $_SESSION['cApUnName'];} else {$cApUnName = "";}
+if(isset($_SESSION['cApUnName']) && ($_SESSION['cApUnName'] != "0")) {$cApUnName = $_SESSION['cApUnName'];} else {$dApUnName = "";}
+$cApUnName = $_SESSION['cApUnName'];
 $cHouseNum = $_SESSION['cHouseNum'];
 $cAdr = $_SESSION['cAdr'];
 if(isset($_SESSION['cArea']) && ($_SESSION['cArea'] != "0")) {$cArea = $_SESSION['cArea'];} else {$cArea = "";}
@@ -76,7 +79,7 @@ $dIdReq = $_SESSION['dIdReq'];
 
 $agentname = "Legend's";
 // Include the PHPMailer class
-require 'phpmailer/class.phpmailer.php';
+require_once 'phpmailer/class.phpmailer.php';
 
 // Retrieve the email template required
 $message = file_get_contents('phpmailer/email_templates/emailReq.html');
@@ -101,8 +104,6 @@ if(isset($wrapping)) $message = str_replace('%wrapping%', $wrapping, $message);
 if(isset($packing)) $message = str_replace('%packing%', $packing, $message);
 if(isset($insurance)) $message = str_replace('%insurance%', $insurance, $message);
 
-
-
 $message = str_replace('%cApUnNr%', $cApUnNr, $message);
 $message = str_replace('%cApUnName%', $cApUnName, $message);
 $message = str_replace('%cHouseNum%', $cHouseNum, $message);
@@ -118,8 +119,6 @@ $message = str_replace('%cTruckRes%', $cTruckTI, $message);
 $message = str_replace('%cTruckResH%', $cTruckHV, $message);
 $message = str_replace('%cTruckResT%', $cTruckTV, $message);
 $message = str_replace('%cIDReq%', $cIdReq, $message);
-
-
 
 $message = str_replace('%dApUnNr%', $dApUnNr, $message);
 $message = str_replace('%dApUnName%', $dApUnName, $message);
@@ -143,9 +142,12 @@ $message = str_replace('%year%', $year, $message);
 
 $aemail = "mail@francoisjoubert.me";
 
-
 // Setup PHPMailer
 $mail = new PHPMailer;
+
+$mail2 = clone $mail;
+
+
 $mail->IsSMTP();                                        // Set mailer to use SMTP
 
 // Setup PHPMailer
@@ -176,9 +178,124 @@ $mail->AltBody = 'New ' . $relocationType . ' lead from RELOCATION STATION';
 if(!$mail->Send()) {
    echo 'Message could not be sent.';
    echo 'Mailer Error: ' . $mail->ErrorInfo;
-   exit;
+   // $mail->ClearAllRecipients();
 }
 
-                                                         //echo 'Message has been sent';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Retrieve the email template required
+$message2 = file_get_contents('phpmailer/email_templates/emailRecToClient.html');
+
+// Replace the % with the actual information
+$message2 = str_replace('%appName%', $appName, $message2);
+$message2 = str_replace('%appSurname%', $appSurname, $message2);
+$message2 = str_replace('%appEmail%', $appEmail, $message2);
+$message2 = str_replace('%appCell%', $appCell, $message2);
+$message2 = str_replace('%appWork%', $appWork, $message2);
+$message2 = str_replace('%appType%', $relocationType, $message2);
+$message2 = str_replace('%link%', $link, $message2);
+
+
+$message2 = str_replace('%addedServices%', $addedServices, $message2);
+if(isset($pet)) $message2 = str_replace('%pet%', $pet, $message2);
+if(isset($car)) $message2 = str_replace('%car%', $car, $message2);
+if(isset($courier)) $message2 = str_replace('%courier%', $courier , $message2);
+if(isset($shuttle)) $message2 = str_replace('%shuttle%', $shuttle, $message2);
+if(isset($cleaning)) $message2 = str_replace('%cleaning%', $cleaning, $message2);
+if(isset($wrapping)) $message2 = str_replace('%wrapping%', $wrapping, $message2);
+if(isset($packing)) $message2 = str_replace('%packing%', $packing, $message2);
+if(isset($insurance)) $message2 = str_replace('%insurance%', $insurance, $message2);
+
+$message2 = str_replace('%cApUnNr%', $cApUnNr, $message2);
+$message2 = str_replace('%cApUnName%', $cApUnName, $message2);
+$message2 = str_replace('%cHouseNum%', $cHouseNum, $message2);
+$message2 = str_replace('%cAdr%', $cAdr, $message2);
+$message2 = str_replace('%cArea%', $cArea, $message2);
+$message2 = str_replace('%cCity%', $cCity, $message2);
+$message2 = str_replace('%cProvince%', $cProvince, $message2);
+$message2 = str_replace('%cCountry%', $cCountry, $message2);
+$message2 = str_replace('%cFloor%', $cFloor, $message2);
+$message2 = str_replace('%cLifts%', $cLifts, $message2);
+$message2 = str_replace('%cTruck%', $cTruck, $message2);
+$message2 = str_replace('%cTruckRes%', $cTruckTI, $message2);
+$message2 = str_replace('%cTruckResH%', $cTruckHV, $message2);
+$message2 = str_replace('%cTruckResT%', $cTruckTV, $message2);
+$message2 = str_replace('%cIDReq%', $cIdReq, $message2);
+
+$message2 = str_replace('%dApUnNr%', $dApUnNr, $message2);
+$message2 = str_replace('%dApUnName%', $dApUnName, $message2);
+$message2 = str_replace('%dHouseNum%', $dHouseNum, $message2);
+$message2 = str_replace('%dAdr%', $dAdr, $message2);
+$message2 = str_replace('%dArea%', $dArea, $message2);
+$message2 = str_replace('%dCity%', $dCity, $message2);
+$message2 = str_replace('%dProvince%', $dProvince, $message2);
+$message2 = str_replace('%dCountry%', $dCountry, $message2);
+$message2 = str_replace('%dFloor%', $dFloor, $message2);
+$message2 = str_replace('%dLifts%', $dLifts, $message2);
+$message2 = str_replace('%dTruck%', $dTruck, $message2);
+$message2 = str_replace('%dTruckRes%', $dTruckTI, $message2);
+$message2 = str_replace('%dTruckResH%', $dTruckHV, $message2);
+$message2 = str_replace('%dTruckResT%', $dTruckTV, $message2);
+$message2 = str_replace('%dIDReq%', $dIdReq, $message2);
+
+$message2 = str_replace('%year%', $year, $message2);
+
+$appEmail = $_SESSION['appEmail'];
+//$appEmail = "michael@legendremovals.co.za";
+
+
+// REMOVE THIS LINE BELOW TO ENABLE MAIL SENDING TO THE CLINET
+$appEmail = "mail@francoisjoubert.me";
+
+ //echo 'Message has been sent';
+
+// Setup PHPMailer
+$mail2->IsSMTP();                                        // Set mailer to use SMTP
+$mail2->setFrom('donotreply@demoprojects.co.za', 'Do not reply - Relocation Stration');
+
+// Setup PHPMailer
+include 'phpmailer/MailerConfig.php';
+
+// Set who the email is sending to
+//$mail->AddAddress('josh@example.net', 'Josh Adams');  // Add a recipient
+$mail2->AddAddress($appEmail);                             // Name is optional
+
+
+//$mail->AddReplyTo('info@example.com', 'Information');
+//$mail->AddCC('cc@example.com');
+//$mail->AddBCC('bcc@example.com');
+
+$mail2->WordWrap = 50;                                   // Set word wrap to 50 characters
+//$mail->AddAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->AddAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+$mail2->IsHTML(true);                                    // Set email format to HTML
+
+// Set the subject
+$mail2->Subject = 'Your new ' . $relocationType . ' request via RELOCATION STATION';
+
+//Set the message2
+$mail2->MsgHTML($message2);
+//$mail2->AltBody(strip_tags($message2));
+$mail2->AltBody = 'Your new ' . $relocationType . ' request via RELOCATION STATION';
+
+if(!$mail2->Send()) {
+   echo 'Message could not be sent to your email account, sorry.';
+   echo 'Mailer Error: ' . $mail2->ErrorInfo;
+   exit;
+}
 
 ?>

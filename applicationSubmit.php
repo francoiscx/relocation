@@ -120,7 +120,7 @@ $emailSent = 1;
             <div class="row" style="margin-top:44px;">
                 <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Thank you for submitting your<br><span style="color:crimson"><?php echo $relocationType;?> Moving Requirements</span><br/>you will soon start to receive your <span style="color:crimson">Quotations</span> </h1><p style="text-align:center; color:#4A4A4A">
                     <br/></p>
-                    <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba(221,27,61,1.00);: -83px;margin: 0px 17px;"></h1></div>
+                    <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;"></h1></div>
                 </div>
             </div>
 
