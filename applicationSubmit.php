@@ -118,7 +118,7 @@ $emailSent = 1;
     <div id="backgrounddiv">
         <div class="container">
             <div class="row" style="margin-top:44px;">
-                <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Thank you for submitting your<br><span style="color:crimson"><?php echo $relocationType;?> Moving Requirements</span><br/>you will soon start to receive your <span style="color:crimson">Quotations</span> </h1><p style="text-align:center; color:#4A4A4A">
+                <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Thank you for submitting your<br><span style="color:crimson"><?php echo $_SESSION['relocationType'];?> Moving Requirements</span><br/>you will soon start to receive your <span style="color:crimson">Quotations</span> </h1><p style="text-align:center; color:#4A4A4A">
                     <br/></p>
                     <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;"></h1></div>
                 </div>
@@ -150,7 +150,7 @@ $emailSent = 1;
 
 <?php 
 echo "<h4>Hi " . $_SESSION['appName'] . "!</h4>
-Thank you for submitting your " . $relocationType . " Moving Quotation Request through the Relocation Station.
+Thank you for submitting your " . $_SESSION['relocationType'] . " Moving Quotation Request through the Relocation Station.
 <br> We received your request and you can expect communication from our partners soon.
 <br><br>
 Thanks again for using the Relocation Station.<br>

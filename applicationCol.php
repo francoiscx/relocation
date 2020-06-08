@@ -327,7 +327,6 @@ require_once 'inc/required/detect.php';
                                             <div style='display:none;' id='cTruckTH' name='cTruckTH'>
                                                 <br><label>Height in meters *</label>
                                                 <select class="form-control" style="max-width:300px!important;" id='cTruckHV' name='cTruckHV'>
-                                                    <option value = "">-- What is the maximum height? --</option>
                                                     <option <?php if(!isset($_SESSION['cTruckHV']) || ($_SESSION['cTruckHV'] == "")) echo "selected";?> value = "">-- What is the maximum height? --</option>
                                                     <option <?php if(isset($_SESSION['cTruckHV']) && $_SESSION['cTruckHV'] == "1.8m") echo "selected";?>>1.8m</option>
                                                     <option <?php if(isset($_SESSION['cTruckHV']) && $_SESSION['cTruckHV'] == "1.9m") echo "selected";?>>1.9m</option>

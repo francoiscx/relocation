@@ -284,7 +284,7 @@ This submission is done by me in order to request quotations for a <b>' . $_SESS
     
     if(isset($_SESSION['cFloor'])) {
         echo 'Floor: ';    
-            if($_SESSION['cFloor'] ==  'ground') echo "Ground" . '<br>'; 
+            if($_SESSION['cFloor'] ==  'Ground') echo "Ground" . '<br>'; 
             if($_SESSION['cFloor'] ==  1) echo "1st" . '<br>'; 
             if($_SESSION['cFloor'] ==  2) echo "2nd" . '<br>'; 
             if($_SESSION['cFloor'] ==  3) echo "3rd" . '<br>'; 
@@ -320,12 +320,13 @@ This submission is done by me in order to request quotations for a <b>' . $_SESS
             if($_SESSION['cFloor'] ==  33) echo "33rd" . '<br>'; 
             if($_SESSION['cFloor'] ==  34) echo "34th" . '<br>'; 
         } 
- if($_SESSION['cFloor'] == 'ground') {$_SESSION['cLiftsV'] = "";}
+ if($_SESSION['cFloor'] == 'ground') {$_SESSION['cLiftsV'] = "0";}
 
 
-    if(isset($_SESSION['cLiftsV']) && $_SESSION['cLiftsV'] != "") {
+    if(isset($_SESSION['cLiftsV']) && $_SESSION['cLiftsV'] != "0") {
         echo 'Lifts: ' . $_SESSION['cLiftsV'] . '<br>'; 
     }
+
     if(isset($_SESSION['cTruck']) && ($_SESSION['cTruck'] == "No")) {
     echo 'Truck Restrictions: ' . $_SESSION['cTruck'] . '<br>'; 
     }
@@ -380,7 +381,7 @@ This submission is done by me in order to request quotations for a <b>' . $_SESS
     
     if(isset($_SESSION['dFloor'])) {
         echo 'Floor: ';    
-            if($_SESSION['dFloor'] ==  'ground') echo "Ground" . '<br>'; 
+            if($_SESSION['dFloor'] ==  'Ground') echo "Ground" . '<br>'; 
             if($_SESSION['dFloor'] ==  1) echo "1st" . '<br>'; 
             if($_SESSION['dFloor'] ==  2) echo "2nd" . '<br>'; 
             if($_SESSION['dFloor'] ==  3) echo "3rd" . '<br>'; 
@@ -418,9 +419,9 @@ This submission is done by me in order to request quotations for a <b>' . $_SESS
      }
 
 
-     if($_SESSION['dFloor'] == 'ground') {$_SESSION['dLiftsV'] = "";}
+     if($_SESSION['dFloor'] == 'ground') {$_SESSION['dLiftsV'] = "0";}
 
-     if(isset($_SESSION['dLiftsV']) && $_SESSION['dLiftsV'] != "") {
+     if(isset($_SESSION['dLiftsV']) && $_SESSION['dLiftsV'] != "0") {
         echo 'Lifts: ' . $_SESSION['dLiftsV'] . '<br>'; 
     }
 

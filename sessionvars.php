@@ -5,7 +5,7 @@
    echo "<h1> PHP List All Session Variables</h1>";
    foreach ($_SESSION as $key=>$val)
     echo $key."   :  ".$val."</span><br/>";
-    echo "end";
+    echo "<br><br><br><br><br><br>end";
 //}
 
 
