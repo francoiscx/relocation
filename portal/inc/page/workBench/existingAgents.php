@@ -185,8 +185,8 @@
             <td><?php echo '<a href="tel:' . $companyNumber . '" style="text-decoration:none; color:green">' . $companyNumber . '</a>';?></td>
             <td><?php echo '<a href="mailto:' . $email . '" style="color:green">' . $email . '</a>';?></td>
             <td><?php echo '<a href="mailto:' . $emailnotify . '" style="color:green">' . $emailnotify . '</a>';?></td>
-            <td><?php echo '<br><br><center><div class="redirect"><a href="/jobCard.php?id=' . $serviceProviderID . '"<span style="color:orange"><i class="fa fa-edit"></i></span></div></center>';?></td>
-            <td><?php echo '<br><br><center><div class="redirect"><a href="/archiveAgent.php?id=' . $serviceProviderID . '"<i class="fa fa-user-times"></i></div></center>';?></td>
+            <td><?php echo '<br><br><center><div class="redirect"><a href="../portal/jobCard.php?id=' . $serviceProviderID . '"<span style="color:orange"><i class="fa fa-edit"></i></span></div></center>';?></td>
+            <td><?php echo '<br><br><center><div class="redirect"><a href="../portal/archiveAgent.php?id=' . $serviceProviderID . '"<i class="fa fa-user-times"></i></div></center>';?></td>
             
             <td><?php if(isset($residential) && ($residential == 1)) {echo '<br><br><span style="display:none">Residential</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
             <td><?php if(isset($commercial) && ($commercial == 1)) {echo '<br><br><span style="display:none">Commercial</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
