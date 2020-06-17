@@ -26,8 +26,8 @@
                         }
 
                         if(!empty($form_errors)) echo str_replace(
-                            ['firstname','lastname', 'companyName', 'companyRegistrationNumber', 'title', 'email','emailnotify', 'address', 'townCity', 'suburb', 'postalCode', 'services'],
-                            ['Firstname', 'Surname', 'Company Name', 'Company Registration Number', 'Title', 'Email', 'Email for Notifications', 'Address', 'Town / City', 'Suburb', 'Postal Code', 'Services that you want to offer'],
+                            ['firstname','lastname', 'companyName', 'companyRegistrationNumber', 'title', 'email','emailnotify', 'address', 'townCity', 'province', 'suburb', 'postalCode', 'services'],
+                            ['Firstname', 'Surname', 'Company Name', 'Company Registration Number', 'Title', 'Email', 'Email for Notifications', 'Address', 'Town / City' , 'Province', 'Suburb', 'Postal Code', 'Services that you want to offer'],
                             show_errors($form_errors));
                     ?>
                             <div class="form-group">
@@ -81,6 +81,7 @@
                                 <input style="margin-bottom:3px" type="text" class="form-control" id="address" name="address" value="<?php if(isset($_SESSION['app_address'])) echo $_SESSION['app_address'];?>" placeholder="Address">
                                 <input style="margin-bottom:3px" type="text" class="form-control" id="suburb" name="suburb" value="<?php if(isset($_SESSION['app_suburb'])) echo $_SESSION['app_suburb'];?>" placeholder="Suburb">
                                 <input style="margin-bottom:3px" type="text" class="form-control" id="townCity" name="townCity" value="<?php if(isset($_SESSION['app_townCity'])) echo $_SESSION['app_townCity'];?>" placeholder="Town/City">
+                                <input style="margin-bottom:3px" type="text" class="form-control" id="province" name="province" value="<?php if(isset($_SESSION['app_province'])) echo $_SESSION['app_province'];?>" placeholder="Province">
                                 <input type="text" class="form-control" id="postalCode" name="postalCode" value="<?php if(isset($_SESSION['app_postalCode'])) echo $_SESSION['app_postalCode'];?>" placeholder="Postal Code">
                             </div>
                             

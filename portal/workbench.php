@@ -161,6 +161,9 @@ if($pageID == 4) {$sitePage = "archivedAgents";}
       
      
 <?php
+if(isset($_SESSION['app_services'])) {
+  unset($_SESSION['app_services']);
+}
 
 
 if($sitePage == "addAgent") {

@@ -26,7 +26,7 @@ if(isset($_POST['submitApplication'])) {
     $form_errors = array();
     
     //list all required fields
-    $required_fields = array ('companyName', 'companyRegistrationNumber', 'title', 'firstname','lastname', 'email','emailnotify', 'address', 'townCity', 'suburb', 'postalCode', 'services');
+    $required_fields = array ('companyName', 'companyRegistrationNumber', 'title', 'firstname','lastname', 'email','emailnotify', 'address', 'townCity', 'province', 'suburb', 'postalCode', 'services');
     
     //call function to check empty fields
     $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
@@ -66,6 +66,8 @@ if(isset($_POST['submitApplication'])) {
         $app_suburb = $_SESSION['app_suburb'];
     if(isset($_POST['townCity']) && ($_POST['townCity'] != "")) {$_SESSION['app_townCity'] = $_POST['townCity'];} else {$_SESSION['app_townCity'] == "";}
         $app_townCity = $_SESSION['app_townCity'];
+    if(isset($_POST['province']) && ($_POST['province'] != "")) {$_SESSION['app_province'] = $_POST['province'];} else {$_SESSION['app_province'] == "";}
+        $app_province = $_SESSION['app_province'];
     if(isset($_POST['postalCode']) && ($_POST['postalCode'] != "")) {$_SESSION['app_postalCode'] = $_POST['postalCode'];} else {$_SESSION['app_postalCode'] == "";}
         $app_postalCode = $_SESSION['app_postalCode'];
     if(isset($_POST['sudo']) && ($_POST['sudo'] != "")) {$_SESSION['app_services'] = $_POST['sudo'];} else {$_SESSION['app_services'] == "";}
@@ -83,6 +85,7 @@ if(isset($_POST['submitApplication'])) {
     && isset($_POST['address'])
     && isset($_POST['suburb'])
     && isset($_POST['townCity'])
+    && isset($_POST['province'])
     && isset($_POST['postalCode'])
     && isset($_POST['sudo'])) {
         
@@ -158,12 +161,12 @@ if(isset($_POST['submitApplication'])) {
 
         try{   
             //SQL statement to update card
-            $sqlInsert = "INSERT INTO service_providers (companyName, companyRegistrationNumber, title, firstname, lastname, companyNumber, email, emailnotify, addresss, suburb, townCity, postalCode, services, residential, commercial, international, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
-                          VALUES (:companyName, :companyRegistrationNumber, :title, :firstname, :lastname, :companyNumber, :email, :emailnotify, :addresss, :suburb, :townCity, :postalCode, :services, :residential, :commercial, :international, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";                                                  
+            $sqlInsert = "INSERT INTO service_providers (companyName, companyRegistrationNumber, title, firstname, lastname, companyNumber, email, emailnotify, addresss, suburb, townCity, province, postalCode, services, residential, commercial, international, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
+                          VALUES (:companyName, :companyRegistrationNumber, :title, :firstname, :lastname, :companyNumber, :email, :emailnotify, :addresss, :suburb, :townCity, :province, :postalCode, :services, :residential, :commercial, :international, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";                                                  
             //use PDO prepared to sanitize SQL statement
             $statement = $db->prepare($sqlInsert);                                                               
             //execute the statement
-            $statement->execute(array(':companyName' => $app_companyName, ':companyRegistrationNumber' => $app_companyRegistrationNumber, ':title' => $app_title, ':firstname' => $app_firstname, ':lastname' => $app_lastname, ':companyNumber' => $app_companyNumber, ':email' => $app_email, ':emailnotify' => $app_emailnotify, ':addresss' => $app_address, ':suburb' => $app_suburb, ':townCity' => $app_townCity, ':postalCode' => $app_postalCode, ':services' => $app_services, ':residential' => $residential, ':commercial' => $commercial, ':international' => $international, ':storage' => $storage, ':pet' => $pet, ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
+            $statement->execute(array(':companyName' => $app_companyName, ':companyRegistrationNumber' => $app_companyRegistrationNumber, ':title' => $app_title, ':firstname' => $app_firstname, ':lastname' => $app_lastname, ':companyNumber' => $app_companyNumber, ':email' => $app_email, ':emailnotify' => $app_emailnotify, ':addresss' => $app_address, ':suburb' => $app_suburb, ':townCity' => $app_townCity, ':province' => $app_province, ':postalCode' => $app_postalCode, ':services' => $app_services, ':residential' => $residential, ':commercial' => $commercial, ':international' => $international, ':storage' => $storage, ':pet' => $pet, ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
     
             $_SESSION['applicatoinSent'] = 1;
     
@@ -175,6 +178,7 @@ if(isset($_POST['submitApplication'])) {
             unset($_SESSION['app_address']);
             unset($_SESSION['app_suburb']);
             unset($_SESSION['app_townCity']);
+            unset($_SESSION['app_province']);
             unset($_SESSION['app_postalCode']);
             unset($_SESSION['app_services']);
     

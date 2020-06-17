@@ -104,7 +104,7 @@ input#updateagentBtn {
 </style>
 
 <!-- TO DO List -->
-          <div class="box" style="height:900px; box-primary">
+          <div class="box box-primary" style="height:900px;">
             <div class="box-header">
         <!--      <i class="ion ion-clipboard"></i> -->
 

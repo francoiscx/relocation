@@ -290,6 +290,7 @@ button#submitApplication {
     padding: 5px 37px;
     border: solid 1px rgb(191,56,56);
     border-radius: 24px;
+    min-height: 32px;
 }
 
 </style>                                
