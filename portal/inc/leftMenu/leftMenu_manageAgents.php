@@ -27,11 +27,11 @@ echo '    <li class="treeview">';
 
 if($sitePage == "addAgent") {
 
-echo '      <li><a href="inc/page/workBench/addAgent/redirectNewAgentWithIdentifier.php"><i class="fa fa-circle"></i>Add Partner</a></li>';
+echo '      <li><a href="./workbench.php?id=1"><i class="fa fa-circle"></i>Add Partner</a></li>';
 
 } else {
  
-echo '      <li><a href="inc/page/workBench/addAgent/redirectNewAgentWithIdentifier.php"><i class="fa fa-circle-o"></i>Add Partner</a></li>';   
+echo '      <li><a href="./workbench.php?id=1"><i class="fa fa-circle-o"></i>Add Partner</a></li>';   
     
 }
             
@@ -39,11 +39,11 @@ echo '      <li><a href="inc/page/workBench/addAgent/redirectNewAgentWithIdentif
 
 if($sitePage == "existingAgents" || $sitePage == "archiveAgent" || $sitePage == "editAgent") {
 
-echo '      <li><a href="workbench.php?id=2"><i class="fa fa-circle"></i>Manage Partners</a></li>';
+echo '      <li><a href="workbench.php?id=2"><i class="fa fa-circle"></i>Manage Active Partners</a></li>';
 
 } else {
  
-echo '      <li><a href="workbench.php?id=2"><i class="fa fa-circle-o"></i>Manage Partners</a></li>';   
+echo '      <li><a href="workbench.php?id=2"><i class="fa fa-circle-o"></i>Manage Active Partners</a></li>';   
     
 }
     
@@ -64,11 +64,11 @@ echo '      <li><a href="/workbench.php?id=3"><i class="fa fa-circle-o"></i>Revi
 
     if($sitePage == "archivedAgents" || $sitePage == "editArchives") {
     
-    echo '      <li><a href="workbench.php?id=4"><i class="fa fa-circle"></i>Inactive Partners</a></li>';
+    echo '      <li><a href="workbench.php?id=4"><i class="fa fa-circle"></i>Manage Archived Partners</a></li>';
     
     } else {
      
-    echo '      <li><a href="workbench.php?id=4"><i class="fa fa-circle-o"></i>Inavtive Partners</a></li>';   
+    echo '      <li><a href="workbench.php?id=4"><i class="fa fa-circle-o"></i>Manage Archived Partners</a></li>';   
         
     }
 

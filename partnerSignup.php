@@ -86,14 +86,84 @@ if(isset($_POST['submitApplication'])) {
     && isset($_POST['postalCode'])
     && isset($_POST['sudo'])) {
         
+        //var_dump($_POST['sudo']);
+        
+        $a = $_POST['sudo'];
+
+        if (strpos($a, 'Residential') !== false) {
+            $residential = 1;
+        }
+
+        if (strpos($a, 'Commercial') !== false) {
+            $commercial = 1;
+        }
+
+        if (strpos($a, 'International') !== false) {
+            $international = 1;
+        }
+
+        if (strpos($a, 'Storage') !== false) {
+            $storage = 1;
+        }
+
+        if (strpos($a, 'Pet') !== false) {
+            $pet = 1;
+        }
+
+        if (strpos($a, 'Car') !== false) {
+            $car = 1;
+        }
+
+        if (strpos($a, 'Transport') !== false) {
+            $transport = 1;
+        }
+
+        if (strpos($a, 'Courier') !== false) {
+            $courier = 1;
+        }
+
+        if (strpos($a, 'Shuttle') !== false) {
+            $shuttle = 1;
+        }
+
+        if (strpos($a, 'Cleaning') !== false) {
+            $cleaning = 1;
+        }
+
+        if (strpos($a, 'Wrapping') !== false) {
+            $wrapping = 1;
+        }
+        
+        if (strpos($a, 'Packing') !== false) {
+            $packing = 1;
+        }
+        
+        if (strpos($a, 'Insurance') !== false) {
+            $insurance = 1;
+        }       
+          
+            if(!isset($residential)) $residential = 0;
+            if(!isset($commercial)) $commercial = 0;
+            if(!isset($international)) $international = 0;
+            if(!isset($storage)) $storage = 0;
+            if(!isset($pet)) $pet = 0;
+            if(!isset($car)) $car = 0;
+            if(!isset($transport)) $transport = 0;
+            if(!isset($courier)) $courier = 0;
+            if(!isset($shuttle)) $shuttle = 0;
+            if(!isset($cleaning)) $cleaning = 0;
+            if(!isset($wrapping)) $wrapping = 0;
+            if(!isset($packing)) $packing = 0;
+            if(!isset($insurance)) $insurance = 0;
+
         try{   
             //SQL statement to update card
-            $sqlInsert = "INSERT INTO service_providers (companyName, companyRegistrationNumber, title, firstname, lastname, companyNumber, email, emailnotify, addresss, suburb, townCity, postalCode, services)
-                          VALUES (:companyName, :companyRegistrationNumber, :title, :firstname, :lastname, :companyNumber, :email, :emailnotify, :addresss, :suburb, :townCity, :postalCode, :services)";                                                  
+            $sqlInsert = "INSERT INTO service_providers (companyName, companyRegistrationNumber, title, firstname, lastname, companyNumber, email, emailnotify, addresss, suburb, townCity, postalCode, services, residential, commercial, international, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
+                          VALUES (:companyName, :companyRegistrationNumber, :title, :firstname, :lastname, :companyNumber, :email, :emailnotify, :addresss, :suburb, :townCity, :postalCode, :services, :residential, :commercial, :international, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";                                                  
             //use PDO prepared to sanitize SQL statement
             $statement = $db->prepare($sqlInsert);                                                               
             //execute the statement
-            $statement->execute(array(':companyName' => $app_companyName, ':companyRegistrationNumber' => $app_companyRegistrationNumber, ':title' => $app_title, ':firstname' => $app_firstname, ':lastname' => $app_lastname, ':companyNumber' => $app_companyNumber, ':email' => $app_email, ':emailnotify' => $app_emailnotify, ':addresss' => $app_address, ':suburb' => $app_suburb, ':townCity' => $app_townCity, ':postalCode' => $app_postalCode, ':services' => $app_services));
+            $statement->execute(array(':companyName' => $app_companyName, ':companyRegistrationNumber' => $app_companyRegistrationNumber, ':title' => $app_title, ':firstname' => $app_firstname, ':lastname' => $app_lastname, ':companyNumber' => $app_companyNumber, ':email' => $app_email, ':emailnotify' => $app_emailnotify, ':addresss' => $app_address, ':suburb' => $app_suburb, ':townCity' => $app_townCity, ':postalCode' => $app_postalCode, ':services' => $app_services, ':residential' => $residential, ':commercial' => $commercial, ':international' => $international, ':storage' => $storage, ':pet' => $pet, ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
     
             $_SESSION['applicatoinSent'] = 1;
     

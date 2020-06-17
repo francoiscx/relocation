@@ -1,5 +1,5 @@
 <section id="partners">
-        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00); margin: 0px 17px; text-align:center;"><!--PARTNERS--><br></h1>
+        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px; text-align:center;"><!--PARTNERS--><br></h1>
         <div>
             <div class="container">
 
@@ -96,6 +96,9 @@
                                 <option>Courier Services</option>
                                 <option>Shuttle Services</option>
                                 <option>Cleaning Services</option>
+                                <option>Wrapping Services</option>
+                                <option>Packing Services</option>
+                                <option>Insurance</option>
                             </select>
 
                             <input type="hidden" id="sudo"  name="sudo" value="">
@@ -106,7 +109,7 @@
 
                         </form>
                       
-                        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00); margin: 0px 17px;"></h1>
+                        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px;"></h1>
                     </div>
                 </div>
             </div>

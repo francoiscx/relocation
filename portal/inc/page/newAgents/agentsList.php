@@ -37,12 +37,12 @@
 
             
          <?php
-    $active = 1;  
+    $new = 1;  
 
     //COUNT HOW MANY USERS NEED TO BE DISPLAYED
-    $sqlQuery = "SELECT count(*) from service_providers WHERE active = $active";
+    $sqlQuery = "SELECT count(*) from service_providers WHERE new = $new";
     $result = $db->prepare($sqlQuery); 
-    $result->execute(array(':active' => $active)); 
+    $result->execute(array(':new' => $new)); 
     $agentInfo = $result->fetchColumn();
 
 
@@ -68,7 +68,7 @@
                                     FROM
                                     service_providers
                                     WHERE
-                                    active = $active
+                                    new = $new
                                     ORDER BY townCity DESC, firstname, lastname ASC
                                 ";
                          
@@ -102,7 +102,7 @@
                                                                 FROM
                                                                     service_providers
                                                                 WHERE
-                                                                    serviceProviderID = $agentsInfoID AND active = 1
+                                                                    serviceProviderID = $agentsInfoID AND new = 1
                                                             ";
                                                             
                                                             $getagent = $db->query($getagentQuery);
@@ -133,9 +133,7 @@
             <td><?php echo $title . " " . $name . " " . $surname;?></td>
             <td><?php echo '<a href="tel:' . $number . '" style="text-decoration:none; color:#crimson">' . $number . '</a>';?></td>
             <td><?php echo '<a href="mailto:' . $email . '" style="color:#crimson">' . $email . '</a>';?></td>
-            <td><?php if($suspended == 0 ){echo '<span style="color:green">Active</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="toggle(this.id); id=' . $providerID . '">Suspend</a>';}
-            else if($suspended == 1) {echo '<span style="color:crimson">Suspended</span> &nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="toggle(' . $providerID . ')"><span style="color:green">Unsuspend</span></a>';}
-            ?></td>
+            <td><?php if($suspended == 0 ){echo '<span style="color:crimson">Pending Review</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="location=\'./review.php?id=' . $providerID . '\'"><span style="color:green"><b>Review</b></span></a>';}?></td>
         </tr>        
 <?php
             endforeach;

@@ -24,26 +24,27 @@ echo '    <li class="treeview">';
 
 
 <?php
-if($sitePage == "allAgents") {
 
-echo '          <li class="active"><a href="index.php"><i class="fa fa-circle"></i>All Partners</a></li>';
+
+if($sitePage == "newApplicants") {
+
+echo '          <li class="active"><a href="index.php?new=1"><i class="fa fa-circle"></i>New Applications</a></li>';
             
 } else {
 
-echo '            <li class="active"><a href="index.php"><i class="fa fa-circle-o"></i>All Partners</a></li>';
+echo '            <li class="active"><a href="index.php?new=1"><i class="fa fa-circle-o"></i>New Applications</a></li>';
+}
+
+if($sitePage == "allAgents") {
+
+echo '          <li class="active"><a href="index.php?new=0"><i class="fa fa-circle"></i>All Partners</a></li>';
+            
+} else {
+
+echo '            <li class="active"><a href="index.php?new=0"><i class="fa fa-circle-o"></i>All Partners</a></li>';
 }
 ?>
 
-<?php
-//if($sitePage == "byClients") {
-
-//echo '          <li class="active"><a href="#"><i class="fa fa-circle"></i>List By Clients</a></li>';
-            
-//} else {
-
-//echo '            <li class="active"><a href="#"><i class="fa fa-circle-o"></i>List By Clients</a></li>';
-//}
-?>
 
           </ul>
 </li>

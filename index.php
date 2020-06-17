@@ -146,7 +146,7 @@ unset($_SESSION['insurance']);
     </section>
 
     <section id="services">
-        <!-- <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00);margin:0px 17px; text-align:center;">SERVICES<br></h1>-->
+        <!-- <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;margin:0px 17px; text-align:center;">SERVICES<br></h1>-->
         <center><h1 style="color:rgba(191,56,56);font-size:xx-large;font-weight:900;margin:0px 17px;text-align:center;">SERVICES<br></h1></center>
         <div class="card" style="margin-bottom:20px;"></div>
         <div class="card-body">
@@ -261,7 +261,7 @@ unset($_SESSION['insurance']);
 
 
     <!-- <section id="services"> -->
-        <!-- <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00);margin:0px 17px; text-align:center;">SERVICES<br></h1>-->
+        <!-- <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;margin:0px 17px; text-align:center;">SERVICES<br></h1>-->
         <!-- <center><h1 style="color:rgba(191,56,56);font-size:xx-large;font-weight:900;margin:0px 17px;text-align:center;">CUSTOMER SERVICE<br></h1></center>
         <div class="card" style="margin-bottom:20px;"></div>
         <div class="card-body">

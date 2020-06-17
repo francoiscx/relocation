@@ -4,7 +4,7 @@
         <!--      <i class="ion ion-clipboard"></i> -->
 
 
-<h3 class="box-title">All agents as displayed on fitgen website</h3>
+<h3 class="box-title">All Archived partners marked as suspended or active</h3>
 <br><br>
 
   <style>

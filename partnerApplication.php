@@ -17,7 +17,7 @@ include_once 'inc/required/head.php';?>
 <br><br><br><br><br><br>
 
 <section id="partners">
-        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00); margin: 0px 17px; text-align:center;"><!--PARTNERS--><br></h1>
+        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px; text-align:center;"><!--PARTNERS--><br></h1>
         <div>
             <div class="container">
                 <div class="row">
@@ -56,7 +56,7 @@ include_once 'inc/required/head.php';?>
                                     </a>
                             </div>
                         </div>
-                        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00); margin: 0px 17px;"></h1>
+                        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px;"></h1>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ include_once 'inc/required/head.php';?>
 
 
     <section id="services">
-        <!-- <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00);margin:0px 17px; text-align:center;">SERVICES<br></h1>-->
+        <!-- <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;margin:0px 17px; text-align:center;">SERVICES<br></h1>-->
         <div class="card" style="margin-bottom:20px;"></div>
         <div class="card-body">         
             <center><h1 style="color:rgba(191,56,56);font-size:xx-large;font-weight:900;margin:0px 17px;text-align:center;">Become a Partner / Service Provider<br></h1></center>

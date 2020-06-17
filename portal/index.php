@@ -122,9 +122,19 @@ if(isset($_SESSION['displayRightSidebar']) && ($_SESSION['displayRightSidebar'] 
 
       
        <!-- Menu panel -->
-
 <?php
-$sitePage = "allAgents";
+if (isset($_GET['new'])) {
+  if($_GET['new'] == 1) {
+    $sitePage = "newApplicants";
+  } else {
+    $sitePage = "allAgents";
+  }
+} else {
+  $sitePage = "newApplicants";
+}
+
+
+
       
  include_once 'inc/leftbar_menu.php';
 ?>       
@@ -167,11 +177,12 @@ $sitePage = "allAgents";
 <?php
 
     if(isset($_SESSION['canEditExistingSupplier'])) {
-            include_once './inc/page/allAgents/agentsList.php';
-    } else {
-            include_once './inc/page/expoAgents/expoEntery.php';
+      if(isset($sitePage) && ($sitePage == "allAgents")){
+        include_once './inc/page/allAgents/agentsList.php';
+      } else if ($sitePage == "newApplicants") {
+        include_once './inc/page/newAgents/agentsList.php';
+      }
     }
-
 ?>
       
 

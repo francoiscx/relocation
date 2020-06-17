@@ -1,15 +1,15 @@
           <!-- TO DO List -->
-          <div class="box" style="height:900px; box-primary">
+          <div class="box box-primary" style="height:9000px;">
             <div class="box-header">
         <!--      <i class="ion ion-clipboard"></i> -->
 
 
-<h3 class="box-title">All agents as displayed on fitgen website</h3>
-<br><br>
+<h3 class="box-title">All active partners marked as suspended or live</h3><br><br>
+
 
   <style>
   
-      a.fa.fa-user-times {
+    a.fa.fa-user-times {
         color: crimson;
     }
       .dataTables_wrapper .dataTables_filter input {
@@ -27,17 +27,28 @@
   <table id="agentlist" class="display nowrap" style="width:100%">
         <thead>
             <tr>
-                <center><th>Country</th></center>
-                <center><th>Province</th></center>
-                <center><th>Town</th></center>
-                <center><th>Area</th></center>
-                <center><th>Lat</th></center>
-                <center><th>Lng</th></center>
-                <center><th>Agent</th></center>
-                <center><th>Cell</th></center>
+                <center><th>Company</th></center>
+                <center><th>Reg #</th></center>
+                <center><th>Contact</th></center>
+                <center><th>Contact Number</th></center>
                 <center><th>Email</th></center>
+                <center><th>Notify Email</th></center>
                 <center><th>Edit</th></center>
                 <center><th>Remove</th></center>
+
+                <center><th>Residential</th></center>
+                <center><th>Commercial</th></center>
+                <center><th>International</th></center>
+                <center><th>Storage Serives</th></center>
+                <center><th>Pet Transport</th></center>
+                <center><th>Car Tranport</th></center>
+                <center><th>Courier Services</th></center>
+                <center><th>Shuttle Services</th></center>
+                <center><th>Cleaning Services</th></center>
+                <center><th>Wrapping Services</th></center>
+                <center><th>Packing Services</th></center>
+                <center><th>Insurance</th></center>
+            
             </tr>
         </thead>
         <tbody>
@@ -48,7 +59,7 @@
     $active = 1;  
 
     //COUNT HOW MANY USERS NEED TO BE DISPLAYED
-    $sqlQuery = "SELECT count(*) from agents WHERE active = $active";
+    $sqlQuery = "SELECT count(*) from service_providers WHERE active = $active";
     $result = $db->prepare($sqlQuery); 
     $result->execute(array(':active' => $active)); 
     $agentInfo = $result->fetchColumn();
@@ -64,21 +75,32 @@
                                 $agentInfoQuery = "
          
                                     SELECT
-                                        agents.agentID,
-                                        agents.country,
-                                        agents.province,
-                                        agents.town,
-                                        agents.area,
-                                        agents.agentName,
-                                        agents.cell,
-                                        agents.email,
-                                        agents.lat,
-                                        agents.lng
+                                        serviceProviderID,
+                                        companyName,
+                                        companyRegistrationNumber,
+                                        title,
+                                        firstname,
+                                        lastname,
+                                        companyNumber,
+                                        email,
+                                        emailnotify,
+                                        residential,
+                                        commercial,
+                                        international,
+                                        storage,
+                                        pet,
+                                        car,
+                                        courier,
+                                        shuttle,
+                                        cleaning,
+                                        wrapping,
+                                        packing,
+                                        insurance
                                     FROM
-                                        agents
+                                        service_providers
                                     WHERE
-                                        agents.active = $active
-                                    ORDER BY agents.country DESC, agents.province, agents.town, agents.area, agents.agentname ASC
+                                        active = $active
+                                    ORDER BY companyName DESC, companyRegistrationNumber, title, firstname, lastname ASC
                                 ";
                          
                                 $agentsInfo = $db->query($agentInfoQuery)->fetchAll();
@@ -92,65 +114,92 @@
 
             foreach($agentsInfo as $agentsInfo):
                 
-                                                                        $agentsInfoID = $agentsInfo['agentID'];
-                                                        
-                                                        
-                                                                        //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
-                                                                        $getagentQuery = "
-                                                                                                                        
-                                                                                            SELECT 
-                                                                                                    agents.agentID,
-                                                                                                    agents.country,
-                                                                                                    agents.province,
-                                                                                                    agents.town,
-                                                                                                    agents.area,
-                                                                                                    agents.agentName,
-                                                                                                    agents.cell,
-                                                                                                    agents.email,
-                                                                                                    agents.lat,
-                                                                                                    agents.lng
-                                                                                            FROM
-                                                                                                agents
-                                                                                            WHERE
-                                                                                                agents.agentID = $agentsInfoID AND agents.active = $active
-                                                                                        ";
-                                                                                        
-                                                                                        $getagent = $db->query($getagentQuery);
-    //var_dump($getagentStep1);                                    
-                                                                                                            foreach($getagent->fetchAll() as $getagent):
+                                    $agentsInfoID = $agentsInfo['serviceProviderID'];
+                    
+                    
+                                    //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
+                                    $getagentQuery = "
+                                                                                    
+                                                        SELECT 
+                                                                serviceProviderID,
+                                                                companyName,
+                                                                companyRegistrationNumber,
+                                                                title,
+                                                                firstname,
+                                                                lastname,
+                                                                companyNumber,
+                                                                email,
+                                                                emailnotify,
+                                                                residential,
+                                                                commercial,
+                                                                international,
+                                                                storage,
+                                                                pet,
+                                                                car,
+                                                                courier,
+                                                                shuttle,
+                                                                cleaning,
+                                                                wrapping,
+                                                                packing,
+                                                                insurance
+                                                        FROM
+                                                            service_providers
+                                                        WHERE
+                                                            serviceProviderID = $agentsInfoID AND active = $active
+                                                    ";
+                                                    
+                                                    $getagent = $db->query($getagentQuery);
+//var_dump($getagentStep1);                                    
+                                                        foreach($getagent->fetchAll() as $getagent):
 
-                                                                                                            $agentID = $getagent['agentID'];
-                                                                                                            $agent = $getagent['agentName'];
-                                                                                                            $province = $getagent['province'];
-                                                                                                            $country = $getagent['country'];
-                                                                                                            $town = $getagent['town'];
-                                                                                                            $area = $getagent['area'];
-                                                                                                            $cell = $getagent['cell'];
-                                                                                                            $email = $getagent['email'];
-                                                                                                            $lat = $getagent['lat'];
-                                                                                                            $lng = $getagent['lng'];
-                                                                                                            
-                                                                                                            endforeach;
+                                                        $serviceProviderID = $getagent['serviceProviderID'];                                                                                                  $companyRegistrationNumber = $getagent['companyRegistrationNumber'];
+                                                        $companyName = $getagent['companyName'];
+                                                        $title = $getagent['title'];
+                                                        $firstname = $getagent['firstname'];
+                                                        $lastname = $getagent['lastname'];
+                                                        $companyNumber = $getagent['companyNumber'];
+                                                        $email = $getagent['email']; 
+                                                        $emailnotify = $getagent['emailnotify'];       
+                                                        $residential = $getagent['residential'];  
+                                                        $commercial = $getagent['commercial'];  
+                                                        $international = $getagent['international'];  
+                                                        $storage = $getagent['storage'];  
+                                                        $pet = $getagent['pet'];  
+                                                        $car = $getagent['car'];  
+                                                        $courier = $getagent['courier'];  
+                                                        $shuttle = $getagent['shuttle'];  
+                                                        $cleaning = $getagent['cleaning'];  
+                                                        $wrapping = $getagent['wrapping'];  
+                                                        $packing = $getagent['packing'];  
+                                                        $insurance = $getagent['insurance'];                                                                                                    
+                                                        
+                                                        endforeach;
 /////////////////////////////////////////// 
 					
 ?>
 
         <tr>
-            <td><?php echo $country;?></td>
-            <td><?php echo $province;?></td>
-            <td><?php echo $town;?></td>
-            <td><?php echo $area;?></td>
-            <td><?php echo $lat;?></td>
-            <td><?php echo $lng;?></td>
-            <td><?php echo $agent;?></td>
-            <td><?php echo '<a href="tel:' . $cell . '" style="text-decoration:none; color:#82b834">' . $cell . '</a>';?></td>
+            <td><?php echo $companyName;?></td>
+            <td><?php echo $companyRegistrationNumber;?></td>
+            <td><?php echo $title . ' ' . $firstname . ' ' . $lastname;?></td>
+            <td><?php echo '<a href="tel:' . $companyNumber . '" style="text-decoration:none; color:#82b834">' . $companyNumber . '</a>';?></td>
             <td><?php echo '<a href="mailto:' . $email . '" style="color:#82b834">' . $email . '</a>';?></td>
-            <?php echo '<td><center><div class="redirect"><a href="/jobCard.php?id=' . $agentID . '"<i class="fa fa-edit"></i></div></center></td>';?>
-            <?php echo '<td><center><div class="redirect"><a href="/archiveAgent.php?id=' . $agentID . '"<i class="fa fa-user-times"></i></div></center></td>';?>
+            <td><?php echo '<a href="mailto:' . $emailnotify . '" style="color:#82b834">' . $emailnotify . '</a>';?></td>
+            <td><?php echo '<br><br><center><div class="redirect"><a href="/jobCard.php?id=' . $serviceProviderID . '"<span style="color:orange"><i class="fa fa-edit"></i></span></div></center>';?></td>
+            <td><?php echo '<br><br><center><div class="redirect"><a href="/archiveAgent.php?id=' . $serviceProviderID . '"<i class="fa fa-user-times"></i></div></center>';?></td>
             
-            
-            
-            
+            <td><?php if(isset($residential) && ($residential == 1)) {echo '<br><br><span style="display:none">Residential</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($commercial) && ($commercial == 1)) {echo '<br><br><span style="display:none">Commercial</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($international) && ($international == 1)) {echo '<br><br><span style="display:none">International</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($storage) && ($storage == 1)) {echo '<br><br><span style="display:none">Storage</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($pet) && ($pet == 1)) {echo '<br><br><span style="display:none">Pet Transport</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($car) && ($car == 1)) {echo '<br><br><span style="display:none">Car Transport</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($courier) && ($courier == 1)) {echo '<br><br><span style="display:none">Courier Services</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($shuttle) && ($shuttle == 1)) {echo '<br><br><span style="display:none">Shuttle Services</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($cleaning) && ($cleaning == 1)) {echo '<br><br><span style="display:none">Cleaning Services</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($wrapping) && ($wrapping == 1)) {echo '<br><br><span style="display:none">Wrapping Services</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($packing) && ($packing == 1)) {echo '<br><br><span style="display:none">Residential</span>Packing Services<center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
+            <td><?php if(isset($insurance) && ($insurance == 1)) {echo '<br><br><span style="display:none">Insurance</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
         </tr>        
 <?php
             endforeach;
@@ -174,6 +223,15 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </tfoot>
        
@@ -181,30 +239,19 @@
 
         </div>
 
-        <content >
-            <center>
-                <h4 style="padding:25px">
-                    No agents in your area.<br>
-                    We can still help.<br>
-                    Please contact our headoffice: <br><br>
-                    Tel: <a href="tel:+27647556332">+27 (64) 755 6332</a> <br><br>
-                    Email: <a href="mailto:info@fitgen.co.za">info@fitgen.co.za</a>
-                </h4>
-            </center>
-        </content>
+
+
+    </div>
+    <!-- /.box-header -->
+
+
+</div>
+<!-- /.box -->
 
 
 
 
 
-            </div>
-            <!-- /.box-header -->
-
-
-          </div>
-          <!-- /.box -->
-
-
-
-
-
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>

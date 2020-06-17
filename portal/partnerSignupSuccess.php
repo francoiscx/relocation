@@ -1,5 +1,5 @@
     <section id="partners">
-        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00); margin: 0px 17px; text-align:center;"><!--PARTNERS--><br></h1>
+        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px; text-align:center;"><!--PARTNERS--><br></h1>
         <div>
             <div class="container">
 
@@ -10,7 +10,7 @@
                         <br><br>
 
                         <div>
-                            <p><?php echo $_SESSION['app_title'] . ' ' . $_SESSION['app_lastname'] . ', your application  for ' . $_SESSION['app_companyName'] . ' with registration number ' . $_SESSION['app_companyRegistrationNumber'] . ' will be reviewed for eligibility.' ;?></p>
+                            <center><p><?php echo $_SESSION['app_title'] . ' ' . $_SESSION['app_lastname'] . ', your application  for ' . $_SESSION['app_companyName'] . ' with registration number ' . $_SESSION['app_companyRegistrationNumber'] . ' will be reviewed for eligibility.' ;?></p></center>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                             <button class="btn btn-primary" id="goBackHome" name="goBackHome" <?php if(isset($notmobile)) echo 'style="float: right;margin-right:-150px;"';?>>Go back home</button>
                                                   
                       
-                        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;rgba:(221,27,61,1.00); margin: 0px 17px;"></h1>
+                        <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px;"></h1>
                     </div>
                 </div>
             </div>
@@ -40,3 +40,10 @@
         location.replace("index.php");
     };
 </script>
+
+<?php
+unset($_SESSION['app_companyName']);
+unset($_SESSION['app_companyRegistrationNumber']);
+unset($_SESSION['app_title']);
+unset($_SESSION['app_lastname']);
+?>
