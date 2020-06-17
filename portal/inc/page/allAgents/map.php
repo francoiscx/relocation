@@ -132,7 +132,7 @@ echo '
         {
         coords:{lat:' . $lat . ',lng:' . $lng . '},
         iconImage:\'https://fitgen.co.za/GreenPin.png\',
-        content:\'<center><h2>' . $area . '</h2><p>' . $agent . '<br><br><a href="tel:' . $cell . '" style="color:#82b834">' . $cell .'</a><br><br><a href="' . $email . '" style="color:#82b834">' . $email . '</a></p></center>\'
+        content:\'<center><h2>' . $area . '</h2><p>' . $agent . '<br><br><a href="tel:' . $cell . '" style="color:green">' . $cell .'</a><br><br><a href="' . $email . '" style="color:green">' . $email . '</a></p></center>\'
         },
 
 ';
@@ -143,7 +143,7 @@ echo '
         {
         coords:{lat:-26.0157469,lng:28.0979165},
         iconImage:'https://fitgen.co.za/GreenPin.png',
-        content:'<Center><h2>Pretoria</h2><p>Head Office<br><br><a href="tel:+27647556332" style="color:#82b834">+27647556332</a><br><br><a href="mailto:info@fitgen.co.za" style="color:#82b834">info@fitgen.co.za</a></p></center>'
+        content:'<Center><h2>Pretoria</h2><p>Head Office<br><br><a href="tel:+27647556332" style="color:green">+27647556332</a><br><br><a href="mailto:info@fitgen.co.za" style="color:green">info@fitgen.co.za</a></p></center>'
     }];    
     
     

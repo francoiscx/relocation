@@ -127,7 +127,7 @@ echo '
         {
         coords:{lat:' . $lat . ',lng:' . $lng . '},
         iconImage:\'https://fitgen.co.za/GreenPin.png\',
-        content:\'<center><h2>' . $area . '</h2><p>' . $agent . '<br><br><a href="tel:' . $cell . '" style="color:#82b834">' . $cell .'</a><br><br><a href="' . $email . '" style="color:#82b834">' . $email . '</a></p></center>\'
+        content:\'<center><h2>' . $area . '</h2><p>' . $agent . '<br><br><a href="tel:' . $cell . '" style="color:green">' . $cell .'</a><br><br><a href="' . $email . '" style="color:green">' . $email . '</a></p></center>\'
         },
 
 ';

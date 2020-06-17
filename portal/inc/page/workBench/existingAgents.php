@@ -182,9 +182,9 @@
             <td><?php echo $companyName;?></td>
             <td><?php echo $companyRegistrationNumber;?></td>
             <td><?php echo $title . ' ' . $firstname . ' ' . $lastname;?></td>
-            <td><?php echo '<a href="tel:' . $companyNumber . '" style="text-decoration:none; color:#82b834">' . $companyNumber . '</a>';?></td>
-            <td><?php echo '<a href="mailto:' . $email . '" style="color:#82b834">' . $email . '</a>';?></td>
-            <td><?php echo '<a href="mailto:' . $emailnotify . '" style="color:#82b834">' . $emailnotify . '</a>';?></td>
+            <td><?php echo '<a href="tel:' . $companyNumber . '" style="text-decoration:none; color:green">' . $companyNumber . '</a>';?></td>
+            <td><?php echo '<a href="mailto:' . $email . '" style="color:green">' . $email . '</a>';?></td>
+            <td><?php echo '<a href="mailto:' . $emailnotify . '" style="color:green">' . $emailnotify . '</a>';?></td>
             <td><?php echo '<br><br><center><div class="redirect"><a href="/jobCard.php?id=' . $serviceProviderID . '"<span style="color:orange"><i class="fa fa-edit"></i></span></div></center>';?></td>
             <td><?php echo '<br><br><center><div class="redirect"><a href="/archiveAgent.php?id=' . $serviceProviderID . '"<i class="fa fa-user-times"></i></div></center>';?></td>
             

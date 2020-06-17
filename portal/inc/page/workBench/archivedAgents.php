@@ -137,8 +137,8 @@
             <td><?php echo $lat;?></td>
             <td><?php echo $lng;?></td>
             <td><?php echo $agent;?></td>
-            <td><?php echo '<a href="tel:' . $cell . '" style="text-decoration:none; color:#82b834">' . $cell . '</a>';?></td>
-            <td><?php echo '<a href="mailto:' . $email . '" style="color:#82b834">' . $email . '</a>';?></td>
+            <td><?php echo '<a href="tel:' . $cell . '" style="text-decoration:none; color:green">' . $cell . '</a>';?></td>
+            <td><?php echo '<a href="mailto:' . $email . '" style="color:green">' . $email . '</a>';?></td>
             <?php echo '<td><center><div class="redirect"><a href="/editArchives.php?id=' . $agentID . '"<i class="fa fa-edit"></i></div></center></td>';?>
             <?php echo '<td><center><div class="redirect"><a href="/reinstateAgent.php?id=' . $agentID . '"<i class="fa fa-user-plus"></i></div></center></td>';?>
             
