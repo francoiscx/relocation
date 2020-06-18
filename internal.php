@@ -42,7 +42,7 @@ if(isset($_POST['loginBtn'])){
             if(password_verify($password, $hashed_password)){
                 
                 $_SESSION['userID'] = $userID;
-                $_SESSION['logemail'] = $logemail;
+                $_SESSION['logemail'] = $email;
                 $_SESSION['logfirstname'] = $logfirstname;
                 $_SESSION['loglastname'] = $loglastname;
                 
@@ -98,28 +98,46 @@ if(isset($_POST['loginBtn'])){
                                           }
                                         
                                         }
+
                                 } else {
                                     
                                     echo" AN ERROR OCCURED";
                                     
                                 }
+                if(isset($_SESSION['userID'])) {
 
+                  $sqlQuery = "SELECT * FROM account WHERE accountID = :accountID";
+                  $statement = $db->prepare($sqlQuery);
+                  $statement->execute(array(':accountID' => 1));
+
+                    while($row = $statement->fetch()){
+
+                      $cloudinaryName = $row['cloudinary_name'];
+                      if(isset($cloudinaryName)) {$_SESSION['cloudinaryName'] = $cloudinaryName;}
+                      
+                      $cloudinaryKey = $row['cloudinary_key'];
+                      if(isset($cloudinaryKey)) {$_SESSION['cloudinaryKey'] = $cloudinaryKey;}
+
+                      $cloudinarySecret = $row['cloudinary_secret'];    
+                      if(isset($cloudinarySecret)) {$_SESSION['cloudinarySecret'] = $cloudinarySecret;}
+
+                    }
+                }
                                         
                 
                 header('location: portal/index.php');
                 
                 //UPDATE LAST LOGEDIN TIME
               try{   
-                                                    $query = $db->prepare("UPDATE users SET lastLogin = NOW() WHERE userID=:userID");
+                          $query = $db->prepare("UPDATE users SET lastLogin = NOW() WHERE userID=:userID");
+                          $query->bindParam(':userID', $userID, PDO::PARAM_STR);
+                          $query->execute();
 
-                                                    $query->bindParam(':userID', $userID, PDO::PARAM_STR);
 
-                                                    $query->execute();
+                        }catch (PDOException $ex){
+                      $result = "An error occurred: ".$ex->getMessage();
+                  } 
 
-          
-                                                 }catch (PDOException $ex){
-                                                $result = "An error occurred: ".$ex->getMessage();
-                                        } 
                                         
                                         
             } else {

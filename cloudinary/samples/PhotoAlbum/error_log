@@ -1,0 +1,67 @@
+[17-Oct-2018 08:36:16 Africa/Johannesburg] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2005] Unknown MySQL server host 'my_database.mydomain.com' (0) in /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php:607
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(607): PDO->__construct('mysql:host=my_d...', 'username', 'password', Array)
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(791): RedBean_Driver_PDO->connect()
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2002): RedBean_Driver_PDO->Escape('photo')
+#3 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2632): RedBean_Adapter_DBAdapter->escape('photo')
+#4 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2592): RedBean_QueryWriter_AQueryWriter->check('photo')
+#5 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2847): RedBean_QueryWriter_AQueryWriter->safeTable('photo')
+#6 /home/erasmusm/beta.kia-data.com/cloudina in /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php on line 607
+[17-Oct-2018 08:36:33 Africa/Johannesburg] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2005] Unknown MySQL server host 'my_database.mydomain.com' (0) in /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php:607
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(607): PDO->__construct('mysql:host=my_d...', 'username', 'password', Array)
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(791): RedBean_Driver_PDO->connect()
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2002): RedBean_Driver_PDO->Escape('photo')
+#3 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2632): RedBean_Adapter_DBAdapter->escape('photo')
+#4 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2592): RedBean_QueryWriter_AQueryWriter->check('photo')
+#5 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php(2847): RedBean_QueryWriter_AQueryWriter->safeTable('photo')
+#6 /home/erasmusm/beta.kia-data.com/cloudina in /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/lib/rb.php on line 607
+[17-Oct-2018 09:42:24 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpHBpjL4')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpHBpjL4', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpHBpjL4', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
+[17-Oct-2018 09:53:00 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpaQWuts')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpaQWuts', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpaQWuts', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
+[17-Oct-2018 09:53:11 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpnhYCK0')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpnhYCK0', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpnhYCK0', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
+[17-Oct-2018 10:47:28 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpkTyCYH')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpkTyCYH', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpkTyCYH', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
+[17-Oct-2018 11:07:28 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpMgY4OI')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpMgY4OI', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpMgY4OI', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
+[17-Oct-2018 13:38:08 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpyP0kPl')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpyP0kPl', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpyP0kPl', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
+[17-Oct-2018 13:52:23 Africa/Johannesburg] PHP Fatal error:  Uncaught Cloudinary\Error: Unknown API key 123456789012345 in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php:344
+Stack trace:
+#0 /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php(63): Cloudinary\Uploader::call_api('upload', Array, Array, '/tmp/phpKxAeKr')
+#1 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(9): Cloudinary\Uploader::upload('/tmp/phpKxAeKr', Array)
+#2 /home/erasmusm/beta.kia-data.com/cloudinary/samples/PhotoAlbum/upload_backend.php(22): create_photo('/tmp/phpKxAeKr', 'FitGen.png')
+#3 {main}
+  thrown in /home/erasmusm/beta.kia-data.com/cloudinary/src/Uploader.php on line 344
