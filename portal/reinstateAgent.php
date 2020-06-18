@@ -149,7 +149,7 @@ $sitePage = "archivedAgents";
       </h1>
       
       
-<!--      <ol class="breadcrumb">
+      <ol class="breadcrumb">
         <li><a href="http://demoprojects.relocation.co.za"><i class="fa fa-dashboard"></i>Home</a></li>
         <li class="active">Dashboard</li>
       </ol>
@@ -212,9 +212,7 @@ if(isset($_SESSION['displayRightSidebar'])) {
 <!-- jQuery UI 1.11.4 -->
 <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->

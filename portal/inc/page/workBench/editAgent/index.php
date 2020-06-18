@@ -355,14 +355,6 @@ if(isset($_POST['sudo']) && ($_POST['sudo'] != "")) {
     $app_services = $_SESSION['app_services'];
 }
         
-if(isset($_POST['asIsBtn'])) {
-    unset($_POST['asIsBtn']);
-    echo '<script>    
-            window.location.href = "workbench.php?id=2";
-          </script>';
-}
-
-
 
 if(isset($_POST['updateagentBtn'])) {
 
@@ -548,11 +540,12 @@ if(isset($_POST['updateagentBtn'])) {
                         <?php
                             if(isset($_SESSION['agentUpdated'])) {     
                             
-                                    echo $_SESSION['agentUpdated'];
+                        echo $_SESSION['agentUpdated'];
+                        $return = "workbench.php?id=" . $_SESSION['returnTo'];
                             
                             unset($_SESSION['agentUpdated']);
                         echo '<script>    
-                                window.location.href = "workbench.php?id=2";
+                                window.location.href = "' . $return . '";
                             </script>';
                         }
 

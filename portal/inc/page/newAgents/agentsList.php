@@ -1,10 +1,9 @@
           <!-- TO DO List -->
           <div class="box" style="height:900px; ">
+
+          <h1 style="margin-left: 20px">New Partner Applications</h1>
             <div class="box-header">
         <!--      <i class="ion ion-clipboard"></i> -->
-
-
-
 <br><br>
 
   <style>
@@ -24,8 +23,8 @@
             <tr>
                 <th>Company</th>
                 <th>Reg#</th>
+                <th>Province</th>
                 <th>City</th>
-                <!-- <th>Country</th> -->
                 <th>Rep</th>
                 <th>Number</th>
                 <th>Email</th>
@@ -82,53 +81,55 @@
 
             foreach($agentsInfo as $agentsInfo):
                 
-                                            $agentsInfoID = $agentsInfo['serviceProviderID'];
-                            
-                                            //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
-                                            $getagentQuery = "
-                                                                                            
-                                                                SELECT 
-                                                                serviceProviderID,
-                                                                companyName,
-                                                                companyRegistrationNumber,
-                                                                title,
-                                                                firstname,
-                                                                lastname,
-                                                                companyNumber,
-                                                                email,
-                                                                townCity,
-                                                                services,
-                                                                suspended
-                                                                FROM
-                                                                    service_providers
-                                                                WHERE
-                                                                    serviceProviderID = $agentsInfoID AND new = 1
-                                                            ";
-                                                            
-                                                            $getagent = $db->query($getagentQuery);
+                    $agentsInfoID = $agentsInfo['serviceProviderID'];
+    
+                    //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
+                    $getagentQuery = "
+                                                                    
+                                        SELECT 
+                                        serviceProviderID,
+                                        companyName,
+                                        companyRegistrationNumber,
+                                        title,
+                                        firstname,
+                                        lastname,
+                                        companyNumber,
+                                        email,
+                                        townCity,
+                                        province,
+                                        services,
+                                        suspended
+                                        FROM
+                                            service_providers
+                                        WHERE
+                                            serviceProviderID = $agentsInfoID AND new = 1
+                                    ";
                                     
-                                                                                foreach($getagent->fetchAll() as $getagent):
+                                    $getagent = $db->query($getagentQuery);
+            
+                                                        foreach($getagent->fetchAll() as $getagent):
 
-                                                                                $providerID = $getagent['serviceProviderID'];
-                                                                                $company = $getagent['companyName'];
-                                                                                $companyReg = $getagent['companyRegistrationNumber'];
-                                                                                $title = $getagent['title'];
-                                                                                $name = $getagent['firstname'];
-                                                                                $surname = $getagent['lastname'];
-                                                                                $number = $getagent['companyNumber'];
-                                                                                $email = $getagent['email'];
-                                                                                $city = $getagent['townCity'];
-                                                                                $services = $getagent['services'];
-                                                                                $suspended = $getagent['suspended'];
-                                                                                
-                                                                                endforeach;
+                                                            $providerID = $getagent['serviceProviderID'];
+                                                            $company = $getagent['companyName'];
+                                                            $companyReg = $getagent['companyRegistrationNumber'];
+                                                            $title = $getagent['title'];
+                                                            $name = $getagent['firstname'];
+                                                            $surname = $getagent['lastname'];
+                                                            $number = $getagent['companyNumber'];
+                                                            $email = $getagent['email'];
+                                                            $city = $getagent['townCity'];
+                                                            $province = $getagent['province'];
+                                                            $services = $getagent['services'];
+                                                            $suspended = $getagent['suspended'];
+                                                        
+                                                        endforeach;
 /////////////////////////////////////////// 
 					
 ?>
-
         <tr>
             <td><?php echo $company;?></td>
             <td><?php echo $companyReg;?></td>
+            <td><?php echo $province;?></td>
             <td><?php echo $city;?></td>
             <td><?php echo $title . " " . $name . " " . $surname;?></td>
             <td><?php echo '<a href="tel:' . $number . '" style="text-decoration:none; color:#crimson">' . $number . '</a>';?></td>
@@ -137,15 +138,17 @@
         </tr>        
 <?php
             endforeach;
+        } else {
+            echo "There does not seem to be any new applications at this time.";
         }
 ?>
-
         
         </tbody>
 
 
         <tfoot>
             <tr>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -169,23 +172,15 @@
         </content>
 
 
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+    </div>
+    <!-- /.box-body -->
 
-
-
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-
-
-
-
-
-            </div>
-            <!-- /.box-body -->
-
-          </div>
-          <!-- /.box -->
+</div>
+<!-- /.box -->
 
 
 

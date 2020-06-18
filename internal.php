@@ -36,15 +36,15 @@ if(isset($_POST['loginBtn'])){
             $userID = $row['user_id'];
             $hashed_password = $row['password'];
             $email = $row['user_email'];
-            $firstname = $row['user_first_name'];
-            $lastname = $row['user_last_name'];
+            $logfirstname = $row['user_first_name'];
+            $loglastname = $row['user_last_name'];
             
             if(password_verify($password, $hashed_password)){
                 
                 $_SESSION['userID'] = $userID;
-                $_SESSION['email'] = $email;
-                $_SESSION['firstname'] = $firstname;
-                $_SESSION['lastname'] = $lastname;
+                $_SESSION['logemail'] = $logemail;
+                $_SESSION['logfirstname'] = $logfirstname;
+                $_SESSION['loglastname'] = $loglastname;
                 
                                 if(isset($_SESSION['userID'])){
 

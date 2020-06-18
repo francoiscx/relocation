@@ -1,5 +1,7 @@
           <!-- TO DO List -->
           <div class="box" style="height:900px; ">
+
+          <h1 style="margin-left: 20px">All active Partners</h1>
             <div class="box-header">
         <!--      <i class="ion ion-clipboard"></i> -->
 
@@ -18,7 +20,6 @@
 
   </style>
 
-      
   <table id="agentlist" class="display nowrap" style="width:100%">
         <thead>
             <tr>
@@ -52,8 +53,8 @@
 
         if(isset($agentInfo)) {
  
-                                $agentInfoQuery = "
-                                    SELECT
+                                $agentInfoQuery = "SELECT                                    
+                                    suspended,
                                     serviceProviderID,
                                     companyName,
                                     companyRegistrationNumber,
@@ -63,13 +64,12 @@
                                     firstname,
                                     email,
                                     townCity,
-                                    services,
-                                    suspended
-                                    FROM
+                                    province,
+                                    services
+                                FROM
                                     service_providers
-                                    WHERE
+                                WHERE
                                     active = $active
-                                    ORDER BY townCity DESC, firstname, lastname ASC
                                 ";
                          
                                 $agentsInfo = $db->query($agentInfoQuery)->fetchAll();
@@ -85,9 +85,8 @@
                                             $agentsInfoID = $agentsInfo['serviceProviderID'];
                             
                                             //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
-                                            $getagentQuery = "
-                                                                                            
-                                                                SELECT 
+                                            $getagentQuery = "SELECT 
+                                                                suspended,
                                                                 serviceProviderID,
                                                                 companyName,
                                                                 companyRegistrationNumber,
@@ -97,31 +96,30 @@
                                                                 companyNumber,
                                                                 email,
                                                                 townCity,
-                                                                services,
-                                                                suspended
-                                                                FROM
+                                                                services
+                                                            FROM
                                                                     service_providers
-                                                                WHERE
+                                                            WHERE
                                                                     serviceProviderID = $agentsInfoID AND active = 1
                                                             ";
                                                             
                                                             $getagent = $db->query($getagentQuery);
-                                    
-                                                                                foreach($getagent->fetchAll() as $getagent):
+                    
+                                                                foreach($getagent->fetchAll() as $getagent):
 
-                                                                                $providerID = $getagent['serviceProviderID'];
-                                                                                $company = $getagent['companyName'];
-                                                                                $companyReg = $getagent['companyRegistrationNumber'];
-                                                                                $title = $getagent['title'];
-                                                                                $name = $getagent['firstname'];
-                                                                                $surname = $getagent['lastname'];
-                                                                                $number = $getagent['companyNumber'];
-                                                                                $email = $getagent['email'];
-                                                                                $city = $getagent['townCity'];
-                                                                                $services = $getagent['services'];
-                                                                                $suspended = $getagent['suspended'];
-                                                                                
-                                                                                endforeach;
+                                                                    $providerID = $getagent['serviceProviderID'];
+                                                                    $company = $getagent['companyName'];
+                                                                    $companyReg = $getagent['companyRegistrationNumber'];
+                                                                    $title = $getagent['title'];
+                                                                    $name = $getagent['firstname'];
+                                                                    $surname = $getagent['lastname'];
+                                                                    $number = $getagent['companyNumber'];
+                                                                    $email = $getagent['email'];
+                                                                    $city = $getagent['townCity'];
+                                                                    $services = $getagent['services'];
+                                                                    $suspended = $getagent['suspended'];
+                                                                
+                                                                endforeach;
 /////////////////////////////////////////// 
 					
 ?>

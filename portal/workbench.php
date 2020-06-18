@@ -171,6 +171,7 @@ include_once 'inc/page/workBench/addAgent.php';
 }
 
 if($sitePage == "existingAgents") {
+$_SESSION['returnTo'] = 2;
 include_once 'inc/page/workBench/existingAgents.php';
 }
 
@@ -179,13 +180,12 @@ include_once 'inc/page/workBench/reviewJobs.php';
 }
 
 if($sitePage == "archivedAgents") {
+$_SESSION['returnTo'] = 4;
 include_once 'inc/page/workBench/archivedAgents.php';
 }
 
 ?>
       
-
-
     </section>
     <!-- /.content -->
 
@@ -218,9 +218,7 @@ include_once 'inc/righSidebar.php';
 <!-- jQuery UI 1.11.4 -->
 <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->

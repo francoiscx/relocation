@@ -49,6 +49,7 @@
                                 $app_address = $row['addresss'];
                                 $app_suburb = $row['suburb'];
                                 $app_townCity = $row['townCity'];
+                                $app_province = $row['province'];
                                 $app_postalCode = $row['postalCode'];
                                 $residential = $row['residential'];
                                 $commercial = $row['commercial'];
@@ -116,6 +117,7 @@
                                 <input style="margin-bottom:3px" type="text" class="form-control" id="address" name="address" value="<?php if(isset($app_address)) echo $app_address;?>" placeholder="Address" disabled>
                                 <input style="margin-bottom:3px" type="text" class="form-control" id="suburb" name="suburb" value="<?php if(isset($app_suburb)) echo $app_suburb;?>" placeholder="Suburb" disabled>
                                 <input style="margin-bottom:3px" type="text" class="form-control" id="townCity" name="townCity" value="<?php if(isset($app_townCity)) echo $app_townCity;?>" placeholder="Town/City" disabled>
+                                <input style="margin-bottom:3px" type="text" class="form-control" id="province" name="province" value="<?php if(isset($app_province)) echo $app_province;?>" placeholder="Province" disabled>
                                 <input type="text" class="form-control" id="postalCode" name="postalCode" value="<?php if(isset($app_postalCode)) echo $app_postalCode;?>" placeholder="Postal Code" disabled>
                             </div>
                             
