@@ -36,19 +36,24 @@ $updateId = $_SESSION['reviewEnteryToUpdate'];
         }
     }
 
+
     if(isset($_POST['trialBtn'])) {
         unset($_POST['trialBtn']);
         unset($_SESSION['reviewEnteryToUpdate']);
+        $midnight = strtotime('today midnight'); 
+        $trialEnd = $midnight + (15 * 86400);
         $active = 1;
         $new = 0;
         $trial = 1;
         $suspended = 0;
+        
+        
 
         //SQL statement to update info
-        $sqlUpdate = "UPDATE service_providers SET active =:active, new =:new, trial =:trial, suspended =:suspended WHERE serviceProviderID =:serviceProviderID";
+        $sqlUpdate = "UPDATE service_providers SET active =:active, new =:new, trial =:trial, trialEnd =:trialEnd, suspended =:suspended WHERE serviceProviderID =:serviceProviderID";
         
         $statement = $db->prepare($sqlUpdate);
-        $statement->execute(array(':active' => $active, ':new' => $new, ':trial' => $trial, ':suspended' => $suspended, ':serviceProviderID' => $updateId));
+        $statement->execute(array(':active' => $active, ':new' => $new, ':trial' => $trial, ':trialEnd' => $trialEnd, ':suspended' => $suspended, ':serviceProviderID' => $updateId));
         if($statement->rowCount() > 0){
                 // means updated
                 include_once '';

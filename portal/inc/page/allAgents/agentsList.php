@@ -54,6 +54,8 @@
         if(isset($agentInfo)) {
  
                                 $agentInfoQuery = "SELECT                                    
+                                    trialEnd,
+                                    trial,
                                     suspended,
                                     serviceProviderID,
                                     companyName,
@@ -86,6 +88,8 @@
                             
                                             //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
                                             $getagentQuery = "SELECT 
+                                                                trialEnd,
+                                                                trial,
                                                                 suspended,
                                                                 serviceProviderID,
                                                                 companyName,
@@ -118,7 +122,8 @@
                                                                     $city = $getagent['townCity'];
                                                                     $services = $getagent['services'];
                                                                     $suspended = $getagent['suspended'];
-                                                                
+                                                                    $trial = $getagent['trial'];
+                                                                    $trialEnd = $getagent['trialEnd'];
                                                                 endforeach;
 /////////////////////////////////////////// 
 					
@@ -131,9 +136,31 @@
             <td><?php echo $title . " " . $name . " " . $surname;?></td>
             <td><?php echo '<a href="tel:' . $number . '" style="text-decoration:none; color:#crimson">' . $number . '</a>';?></td>
             <td><?php echo '<a href="mailto:' . $email . '" style="color:#crimson">' . $email . '</a>';?></td>
-            <td><?php if($suspended == 0 ){echo '<span style="color:green">Active</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="toggle(this.id); id=' . $providerID . '">Suspend</a>';}
-            else if($suspended == 1) {echo '<span style="color:crimson">Suspended</span> &nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="toggle(' . $providerID . ')"><span style="color:green">Unsuspend</span></a>';}
-            ?></td>
+            <td>
+                <?php 
+                    if($trial == 0){
+                        if($suspended == 0 ){
+                            echo '<span style="color:green">Active</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="toggle(this.id); id=' . $providerID . '">Suspend</a>';
+                        } else if($suspended == 1) {
+                            echo '<span style="color:crimson">Suspended</span> &nbsp;&nbsp;| &nbsp;&nbsp;<a href="#" onclick="toggle(' . $providerID . ')"><span style="color:green">Unsuspend</span></a>';
+                        }
+                    } else {
+                        $trialDays = ($trialEnd - time()) / 86400 ;
+                        $trialDays = (round($trialDays));
+                        if($trialDays > 1) { 
+                        echo "<span style='color:green'>Trial ends in " . $trialDays . " days</span> |";
+                        } else if( $trialDays == 1) {
+                            echo "<span style='color:green'>Trial ends in " . $trialDays . " day</span> |";
+                        } else if($trialDays == 0) {
+                            echo "<span style='color:crimson'>Trial ended today</span> |";
+                        } else {
+                            $trialDays = str_replace("-","",$trialDays);
+                            echo "<span style='color:crimson'>Trial ended " . $trialDays . " days ago</span> |";
+                        }
+                        echo "<a href='../portal/review.php?id=" . $providerID . "'> <span style='color:orange'>  Review</span></a>";
+                    }
+            ?>
+            </td>
         </tr>        
 <?php
             endforeach;
