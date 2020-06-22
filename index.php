@@ -301,7 +301,7 @@ unset($_SESSION['insurance']);
                     <div class="col-md-12"><h1 id="partners" style="text-align:center">We Can Help You<br/></h1>
                         <p id="partners" style="text-align:center">One of our partners can also come and give a quote at your premises, whether it is home or office.<br/></p>
                         
-                        <?php include_once 'index1.php';?>
+                        <?php include_once 'carousel.php';?>
 
                        
 

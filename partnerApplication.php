@@ -24,7 +24,7 @@ include_once 'inc/required/head.php';?>
                     <div class="col-md-12"><h1 id="partners" style="text-align:center">BECOME A PARTNER AND JOIN OUR NETWORK<br/></h1>
                         <p id="partners" style="text-align:center">We forward our leads with the information required, enabling our partners to quote.<br/></p>
                         <br><br>
-                            <?php include_once 'index1.php';?>
+                            <?php include_once 'carousel.php';?>
                         <br><br>
 
 

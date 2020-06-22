@@ -100,22 +100,11 @@
                                                                                                 agents.agentID = $agentsInfoID AND agents.active = $active
                                                                                         ";
                                                                                         
-                                                                                        $getagent = $db->query($getagentQuery);
-    //var_dump($getagentStep1);                                    
-                                                                                                            foreach($getagent->fetchAll() as $getagent):
-
-                                                                                                            $agentID = $getagent['agentID'];
-                                                                                                            $agent = $getagent['agentName'];
-                                                                                                            $province = $getagent['province'];
-                                                                                                            $country = $getagent['country'];
-                                                                                                            $town = $getagent['town'];
-                                                                                                            $area = $getagent['area'];
-                                                                                                            $cell = $getagent['cell'];
-                                                                                                            $email = $getagent['email'];
-                                                                                                            $lat = $getagent['lat'];
-                                                                                                            $lng = $getagent['lng'];
-                                                                                                            
-                                                                                                            endforeach;
+                                            $getagent = $db->query($getagentQuery);
+//var_dump($getagentStep1);                                    
+                                                                foreach($getagent->fetchAll() as $getagent):
+                                
+                                                                endforeach;
 /////////////////////////////////////////// 
 					
 
