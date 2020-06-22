@@ -202,8 +202,7 @@ $agentInfo = $result->fetchColumn();
                                             ";
                                             
                                             $getagent = $db->query($getagentQuery);
-
-
+                                
                         // var_dump($getagent);                                    
                         foreach($getagent->fetchAll() as $resultURL):
                         //var_dump($resultURL);  
