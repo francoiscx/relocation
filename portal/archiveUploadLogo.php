@@ -149,7 +149,7 @@ $sitePage = "editAgent";
 <?php
 //echo "Yes";
 
-include_once 'inc/page/workBench/editAgent/logoUpload.php';
+include_once 'inc/page/workBench/editAgent/archiveLogoUpload.php';
 ?>
       
 

@@ -3,7 +3,7 @@ if(isset($_POST['finishLogoBtn'])){
 $_SESSION['uploaded'] = 1;
 echo "Post Clicked
 <script>
-  location.replace('../portal/workbench.php?id=2');
+  location.replace('../portal/workbench.php?id=4');
 </script>";
 }
 

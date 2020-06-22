@@ -300,38 +300,12 @@ unset($_SESSION['insurance']);
                 <div class="row">
                     <div class="col-md-12"><h1 id="partners" style="text-align:center">We Can Help You<br/></h1>
                         <p id="partners" style="text-align:center">One of our partners can also come and give a quote at your premises, whether it is home or office.<br/></p>
-                        <div class="container-fluid">
-                            <div id="partnersCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                                <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                                    <div class="carousel-item col-md-3 active">
-                                        <img class="img-fluid mx-auto d-block" src="http://heavenlygrant.com/legend/move1.png" alt="slide 1">
-                                    </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img class="img-fluid mx-auto d-block" src="http://heavenlygrant.com/legend/move2.png" alt="slide 2">
-                                    </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img class="img-fluid mx-auto d-block" src="http://heavenlygrant.com/legend/move3.png" alt="slide 3">
-                                    </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img class="img-fluid mx-auto d-block" src="http://heavenlygrant.com/legend/move4.png" alt="slide 4">
-                                    </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img class="img-fluid mx-auto d-block" src="http://heavenlygrant.com/legend/move5.png" alt="slide 5">
-                                    </div>
-                                    <div class="carousel-item col-md-3">
-                                        <img class="img-fluid mx-auto d-block" src="http://heavenlygrant.com/legend/move6.png" alt="slide 6">
-                                    </div>
-                                </div>
-                                    <a class="carousel-control-prev" href="#partnersCarousel" role="button" data-slide="prev">
-                                        <i class="fa fa-chevron-left fa-lg text-muted"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next text-faded" href="#partnersCarousel" role="button" data-slide="next">
-                                        <i class="fa fa-chevron-right fa-lg text-muted"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                            </div>
-                        </div>
+                        
+                        <?php include_once 'index1.php';?>
+
+                       
+
+                        <br><br>
                         <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px;"></h1>
                     </div>
                 </div>
@@ -339,4 +313,6 @@ unset($_SESSION['insurance']);
         </div>
     </section>
 
-    <?php include_once 'inc/required/footer.php';?>
+        <?php include_once 'inc/required/footer.php';?>
+
+        <script src="./carousel.js"></script>

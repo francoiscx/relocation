@@ -96,7 +96,8 @@
                                         cleaning,
                                         wrapping,
                                         packing,
-                                        insurance
+                                        insurance,
+                                        logoURL
                                     FROM
                                         service_providers
                                     WHERE
@@ -119,30 +120,29 @@
                     
                     
                                     //THIS WILL RETREIVE THE INFO TO POPULATE THE AGENTCARD IN QUESTION
-                                    $getagentQuery = "
-                                                                                    
-                                                        SELECT 
-                                                                serviceProviderID,
-                                                                companyName,
-                                                                companyRegistrationNumber,
-                                                                title,
-                                                                firstname,
-                                                                lastname,
-                                                                companyNumber,
-                                                                email,
-                                                                emailnotify,
-                                                                residential,
-                                                                commercial,
-                                                                international,
-                                                                storage,
-                                                                pet,
-                                                                car,
-                                                                courier,
-                                                                shuttle,
-                                                                cleaning,
-                                                                wrapping,
-                                                                packing,
-                                                                insurance
+                                    $getagentQuery = "  SELECT 
+                                                            serviceProviderID,
+                                                            companyName,
+                                                            companyRegistrationNumber,
+                                                            title,
+                                                            firstname,
+                                                            lastname,
+                                                            companyNumber,
+                                                            email,
+                                                            emailnotify,
+                                                            residential,
+                                                            commercial,
+                                                            international,
+                                                            storage,
+                                                            pet,
+                                                            car,
+                                                            courier,
+                                                            shuttle,
+                                                            cleaning,
+                                                            wrapping,
+                                                            packing,
+                                                            insurance,
+                                                            logoURL
                                                         FROM
                                                             service_providers
                                                         WHERE
@@ -173,7 +173,7 @@
                                                         $wrapping = $getagent['wrapping'];  
                                                         $packing = $getagent['packing'];  
                                                         $insurance = $getagent['insurance'];                                                                                                    
-                                                        
+                                                        $logoURL = $getagent['logoURL']; 
                                                         endforeach;
 /////////////////////////////////////////// 
 					
@@ -188,7 +188,13 @@
             <td><?php echo '<a href="mailto:' . $emailnotify . '" style="color:green">' . $emailnotify . '</a>';?></td>
             <td><?php echo '<br><br><center><div class="redirect"><a href="../portal/jobCard.php?id=' . $serviceProviderID . '"<span style="color:orange"><i class="fa fa-edit"></i></span></div></center>';?></td>
             <td><?php echo '<br><br><center><div class="redirect"><a href="../portal/archiveAgent.php?id=' . $serviceProviderID . '"<i class="fa fa-user-times"></i></div></center>';?></td>
-            <td><?php echo '<br><br><center><div class="redirect"><a href="../portal/uploadLogo.php?id=' . $serviceProviderID . '"<span style="color:orange"><i class="fa fa-picture-o"></i></span></div></center>';?></td>
+            <td><?php echo '<br><br><center><div class="redirect"><a href="../portal/uploadLogo.php?id=' . $serviceProviderID;
+            if(isset($logoURL)) {
+                echo '"<span style="color:green">';
+            } else {
+                echo '"<span style="color:orange">';
+            }
+            echo '<i class="fa fa-picture-o"></i></span></div></center>';?></td>
              
             <td><?php if(isset($residential) && ($residential == 1)) {echo '<br><br><span style="display:none">Residential</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>
             <td><?php if(isset($commercial) && ($commercial == 1)) {echo '<br><br><span style="display:none">Commercial</span><center style="color:green"><i class="fa fa-check"></i></center><br><br>';} else {echo '<br><br><center style="color:crimson"><i class="fa fa-times"></i></center><br><br>';}?></td>

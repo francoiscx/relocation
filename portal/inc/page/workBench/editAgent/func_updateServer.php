@@ -1,11 +1,12 @@
 <?php
-$pos = strpos($_SERVER['HTTP_REFERER'],getenv('HTTP_HOST'));
-if($pos===false)
-  die('Restricted access');
+// $pos = strpos($_SERVER['HTTP_REFERER'],getenv('HTTP_HOST'));
+// if($pos===false)
+//   die('Restricted access');
 
-include_once '../inc/required/sessions.php'; 
-include_once '../inc/required/database.php';
-include_once '../inc/required/utilities.php';
+
+include_once '../../../../../inc/required/sessions.php'; 
+include_once '../../../../../inc/required/database.php';
+include_once '../../../../../inc/required/utilities.php';
 
 
 if(isset($_POST['data1'])){
@@ -25,7 +26,7 @@ if(isset($_POST['data2'])){
 
 
             if(isset($serviceProviderID) && ($logoURL)) {
-                $sqlUpdate = "UPDATE banks SET logoURL =:logoURL, file_upload =:fileUpload, uploadedBy =:userID WHERE serviceProviderID =:serviceProviderID";
+                $sqlUpdate = "UPDATE service_providers SET logoURL =:logoURL, file_upload =:fileUpload, uploadedBy =:userID WHERE serviceProviderID =:serviceProviderID";
                 //use PDO prepared to sanitize SQL statement
                 $statement = $db->prepare($sqlUpdate);
                 //execute the statement
