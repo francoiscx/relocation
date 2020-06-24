@@ -49,6 +49,7 @@ if(isset($_SESSION['mobile'])) {$mobile = 1;} else {unset($mobile);
 } else {
     $relacationType = "Non-Relocation";
 }
+
 ?>
 
 <style>
@@ -105,7 +106,6 @@ i.icon.ion-social-instagram {
 if(!isset($emailSent)){
 include 'inc/required/head.php';
 include_once 'phpmailer/mail_sender/emailReq.php';
-include_once 'phpmailer/mail_sender/emailReqToClient.php';
 $emailSent = 1;
 }
 ?>
@@ -126,17 +126,17 @@ $emailSent = 1;
 
         <form method="get" action="files/relocationStationInventory.xlsx">
         <?php
-        if(isset($_SESSION['relocationType'])){
-            if($_SESSION['relocationType'] == "Commercial"){
-            echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download Commercial Inventory List!</button></a>';
+            if(isset($_SESSION['relocationType'])){
+                if($_SESSION['relocationType'] == "Commercial"){
+                echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download Commercial Inventory List!</button></a>';
+                }
+                if($_SESSION['relocationType'] == "Residential"){
+                    echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download Residential Inventory List!</button></a>';
+                }
+                if($_SESSION['relocationType'] == "International"){
+                    echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download International Inventory List!</button></a>';
+                }
             }
-            if($_SESSION['relocationType'] == "Residential"){
-                echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download Residential Inventory List!</button></a>';
-            }
-            if($_SESSION['relocationType'] == "International"){
-                echo '<a href="files/relocationStationInventory.xlsx"><button class="btn btn-primary" style="float:right" type="submit">Download International Inventory List!</button></a>';
-            }
-        }
         ?>
         </form>
         

@@ -7,7 +7,8 @@ if(!isset($_SESSION['mailSent'])) {
    $appEmail = $_SESSION['appEmail'];
    $appCell = $_SESSION['appCell'];
    $appWork = $_SESSION['appWork'];
-   $link = "https://relocationstation.co.za/link.php?link=23223";
+   $link = $_SESSION['inventoryUploadLink'];
+   $link = "http://localhost/relocation/inventoryUpload.php?id=" . $link;
    $agentname = "Legend's";
 
    if(isset($_SESSION['pet']) || isset($_SESSION['car']) || isset ($_SESSION['courier']) || isset($_SESSION['shuttle']) || isset($_SESSION['cleaning']) || isset($_SESSION['wrapping']) || isset($_SESSION['packing'])) {
@@ -179,18 +180,6 @@ if(!isset($_SESSION['mailSent'])) {
       echo 'Mailer Error: ' . $mail->ErrorInfo;
       // $mail->ClearAllRecipients();
    }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

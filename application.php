@@ -19,7 +19,6 @@ require_once 'inc/required/detect.php';
         }
     }
 
-
     if(isset($nameError)) {echo $nameError; unset($nameError);}
     if(isset($surnameError)) {echo $surnameError; unset($surnameError);}
     if(isset($cellError)) {echo $cellError; unset($cellError);}

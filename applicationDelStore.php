@@ -364,7 +364,6 @@
 
         }
 
-
     if(isset($_SESSION['updated'])) {
         unset($_SESSION['updated']);
         header("Location: applicationReview.php");

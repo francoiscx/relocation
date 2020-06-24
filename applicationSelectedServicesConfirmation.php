@@ -283,11 +283,14 @@ require_once 'inc/required/detect.php';
                                                 } else {
                                                     if(!isset($_SESSION['hasRecord'])) {
 
+                                                                $inventoryUploadLink = $appID . "_" . $relocationType . "_" . time('now');
+                                                                $_SESSION['inventoryUploadLink'] = $inventoryUploadLink;
+
                                                                 //SQL statement to insert info as new entery
-                                                                $sqlInsert = "INSERT INTO app_details(applicant_id, app_type, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
-                                                                            VALUES(:appID, :relocationType, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";
+                                                                $sqlInsert = "INSERT INTO app_details(applicant_id, app_type, inventoryUploadLink, storage, pet, car, courier, shuttle, cleaning, wrapping, packing, insurance)
+                                                                            VALUES(:appID, :relocationType, :inventoryUploadLink, :storage, :pet, :car, :courier, :shuttle, :cleaning, :wrapping, :packing, :insurance)";
                                                                 $statement = $db->prepare($sqlInsert);
-                                                                $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType, ':storage' => $storage , ':pet' => $pet , ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
+                                                                $statement->execute(array(':appID' => $appID, ':relocationType' => $relocationType, ':inventoryUploadLink' => $inventoryUploadLink, ':storage' => $storage , ':pet' => $pet , ':car' => $car, ':courier' => $courier, ':shuttle' => $shuttle, ':cleaning' => $cleaning, ':wrapping' => $wrapping, ':packing' => $packing, ':insurance' => $insurance));
                                                                 
                                                                 //check if one new row was created
                                                                 if($statement->rowCount() == 1){                        

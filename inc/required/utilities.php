@@ -262,6 +262,8 @@ function denyDuplicateAT($db, $appID, $appType){
                 while($row = $statement->fetch()){
                     $appDetailsID = $row['app_detail_id'];
                     $_SESSION['appDetailsID'] = $appDetailsID;
+                    $inventoryUploadLink = $row['inventoryUploadLink']; 
+                    $_SESSION['inventoryUploadLink'] = $inventoryUploadLink;
 
                     return true;
                 }

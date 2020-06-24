@@ -28,10 +28,10 @@ WHERE
 
 $hasLogo = $db->query($hasLogoQuery);
 
-
 foreach($hasLogo->fetchAll() as $hasLogo):
   $companyName = $hasLogo['companyName'];
   $_SESSION['companyName'] = $companyName;
+  
   $fileUploaded = $hasLogo['file_upload'];
   $existingFile = $hasLogo['logoURL'];
   $uploadedBy = $hasLogo['uploadedBy'];
