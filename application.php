@@ -208,7 +208,7 @@ include_once 'inc/required/head.php';?>
     <section id="appSection">
     <div id="backgrounddiv">
         <div class="container">
-        <div class="row" style="margin-top:44px;">
+        <div class="row" style="margin-top:100px;">
                 <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Please provide your <br><span style="color:#BF3838">Contact Details</span><br/>where we can send your quotations too!</h1><p style="text-align:center; color:#4A4A4A">Please provide your contact details so that our Professional Partners can contact you.<br/></p>
                     <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;margin:0px 17px;"></h1>
                 </div>

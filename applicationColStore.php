@@ -253,13 +253,13 @@
                                 $_SESSION['cProvinceUpdate'] = 0;
                         }
                 }  else {
-                    if(isset($_SESSION['dTruck']) && ($_SESSION['dTruck']) == "Unknown") {
-                            if(!isset($dTruckTI)) $dTruckTI = '0';
-                            $_SESSION['dTruckTI'] = $dTruckTI;      
-                            if(!isset($dTruckHV)) $dTruckHV = '0';
-                            $_SESSION['dTruckHV'] = $dTruckHV;  
-                            if(!isset($dTruckTV)) $dTruckTV = '0';
-                            $_SESSION['dTruckTV'] = $dTruckTV;  
+                    if(isset($_SESSION['cTruck']) && ($_SESSION['cTruck']) == "Unknown") {
+                            if(!isset($cTruckTI)) $cTruckTI = '0';
+                            $_SESSION['cTruckTI'] = $cTruckTI;      
+                            if(!isset($cTruckHV)) $cTruckHV = '0';
+                            $_SESSION['cTruckHV'] = $cTruckHV;  
+                            if(!isset($cTruckTV)) $cTruckTV = '0';
+                            $_SESSION['cTruckTV'] = $cTruckTV;  
                         } else {
                             $notset = 12;
                         }

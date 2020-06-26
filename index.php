@@ -92,7 +92,10 @@ unset($_SESSION['cleaning']);
 unset($_SESSION['wrapping']);
 unset($_SESSION['packing']);
 unset($_SESSION['insurance']);
-
+unset($_SESSION['inventoryUploadLink']);
+unset($_SESSION['partnersSent']);
+unset($_SESSION['hasEntry']);
+unset($_SESSION['returnlink']);
 ?>
         </div>
     </nav>
@@ -153,7 +156,7 @@ unset($_SESSION['insurance']);
             <p class="text-center card-text" style="font-size: 35px;"><br/>Services We Offer Quotes on<br /><br /></p>
             <div class="row">
 
-                <div class="col col-xl-4">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4">
                     <h1 class="text-left"></h1>
                     <img src="assets/img/1448552.png" class="img-fluid" style="width:91%;"/>
                     <h1 class="text-center"><br/>Full-Service Moving<br/></h1>
@@ -161,7 +164,7 @@ unset($_SESSION['insurance']);
                     <p style="font-weight:300">The service provider will provide an experienced team of movers that will come and uplift the furniture and provide a removal truck on the given day. Each item will be wrapped with a blanket for protection and tied securely down for transport. The items will then be offloaded at the new premises and objects placed in the designated rooms. A complete “door to door” service. There will be a team of professional loaders and packers that are attentive, caring and friendly. You will experience consistent customer service, whether you are moving local, office relocations or international for a stress free move, so you can settle in your new home or office quickly and comfortably. The experienced teams will take great care of your furniture and handle every item with the utmost care and respect. The loaders will carry your furniture and boxes to the specified truck or vehicle required and there will be a packer inside the truck/vehicle at all times to take care of your furniture and boxes so that nothing is left unattended and your items will be kept safe at all times. “We do all the heavy lifting for you.”</p>
                 </div>
 
-                <div class="col col-xl-4">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4">
                     <h1 class="text-left"></h1>
                     <img src="assets/img/1448554.png" class="img-fluid" style="width:91%;"/>
                     <h1 class="text-center"><br/>Professional Packers<br/></h1>
@@ -169,7 +172,7 @@ unset($_SESSION['insurance']);
                     <p style="font-weight:300">The expert team of packers can supply you with boxes, white paper, tape, bubble wrap, tubing and any other packaging material needed to prepare your items for transport safely. The experienced team of packers can pack your household items securely and safely into boxes for you with precision and care. A request can also be made to unpack the boxes at the offload destination. The experts can also dismantle and reassemble furniture if needed, the dismantling of furniture is done at the load point and reassembling of furniture is done at the offload point. Certain items like pool tables, tv cabinets, sleigh beds/poster beds and office desks need to be dismantled before your relocation, this can also be done for you by the removal company, this service is not limited as the team can also take down curtains, disconnect washing machines, this needs to be stipulated before the relocation. We also take care of the steps required to dismantle and reassemble grandfather clocks. The team will take great care and precision in disassembling and reassembling of your furniture.</p>
                 </div>
 
-                <div class="col col-xl-4">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4">
                     <h1 class="text-left"></h1>
                     <img src="assets/img/1448551.png" class="img-fluid" style="width:91%;"/>
                     <h1 class="text-center"><br/>Insurance<br/></h1>
@@ -180,48 +183,48 @@ unset($_SESSION['insurance']);
                 </div>
             </div>
             <div class="row">
-                <div class="col col-xl-4" style="display: inline-block">
+            <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                 <h1 class="text-left"><br/>Additional Services<br/></h1>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col col-xl-4" style="display: inline-block">
+            <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                     <p style="padding: 0px;"><i><u>Storage</u></i></p>
                     <p style="font-weight:300">Storage options are available for short term or long term storage. There are several different options ranging from warehouse storage, palisaded storage, containers or bricked single garage storage. Each storage option and period would require a separate level of wrapping service. All storage options are sealed, protected against vermin, dust, breakage, mould and mildew. Storage is monitored 24/7 to keep your furniture safe and secure.</br>
                 </div>
 
 
-                <div class="col col-xl-4" style="display: inline-block">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                     <p style="padding: 0px;"><i><u>Pet Transport</u></i></p>
                     <p style="font-weight:300">The extended family can also be transported safely. Your pet/s will receive careful attention. Your pet transport will have a stress-free trip and handled with the utmost care. Please note that some locations would need the pet to have seen a vet before travel. If your pet/s require certain dietary or medicinal care, the professional pet transporters will take care of that for you.<br><br></p>
                 </div>
 
-                <div class="col col-xl-4" style="display: inline-block">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                     <p style="padding: 0px;"><i><u>Car Transport</u></i></p>
                     <p style="font-weight:300">If you would like a vehicle or motorbike transported, this could be arranged for you with a car carrier service — safe and trackable vehicle relocation. The service providers will take great care of your vehicle and make sure it arrives at its destination safely. Our service providers will make sure they have all the necessary information with regards to your vehicle that needs to be transported.<br><br></p>
                 </div>
 
-                <div class="col col-xl-4" style="display: inline-block">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                     <p style="padding: 0px;"><i><u>Courier Services</u></i><p>
                     <p style="font-weight:300">Courier services are available for smaller items. Your item/s will be transported safely and timeously. Tracking numbers will be provided to the client. Our service providers will handle your smaller items with care, and where you have stated the package is fragile, our experts will handle it so.<br><br><br></p>
                 </div>
 
-                <div class="col col-xl-4" style="display: inline-block">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                     <p style="padding: 0px;"><i><u>Shuttle Services</u></i><p>
                     <p style="font-weight:300">A shuttle service is available when a smaller vehicle is provided to ferry the items to/from a bigger vehicle if truck restrictions are applicable. This is normally needed for complexes, or when other obstacles hinder the vehicle from arriving at the destination, it could be narrow streets or low hanging trees etc. Your belongings will be transported safely to its destination from the truck to its new home or vice versa.<br><br></p>
                 </div>
 
-                <div class="col col-xl-4" style="display: inline-block">
+                <div class="col-12 col-xs-12 col-sm-12 col md-6 col-l-4 col-xl-4" style="display: inline-block">
                     <p style="padding: 0px;"><i><u>Cleaning Services</u></i><p>
                     <p style="font-weight:300">An expert group of cleaners can clean your old home/office on departure and/or your new home/office on arrival for you. The expert cleaners will be efficient and professional to make your “old” home/office, and “new” home/office look spotless, feel fresh and as good as new.<br><br><br></p>
                 </div>
 
-                <div class="col col-xl-2" style="display: inline-block">
+                <div class="col-0 col-xs-0 col-sm-0 col md-2 col-l-2 col-xl-2" style="display: inline-block">
                 </div
 
                 <center>
-                    <div class="col col-xl-8" style="display: inline-block">
+                    <div class="col-12 col-xs-12 col-sm-12 col md-8 col-l-8 col-xl-8" style="display: inline-block">
                         <p style="padding: 0px;"><i><u>Customer Services</u></i><p>
                         <p style="font-weight:300">Customer service is our No. 1 priority. It is the experience that gets delivered to the clients; it’s a promise that is kept to the clients and the company that will follow through for the client. Our service providers make it easy and fast for the clients to get the help they need, when and how they need it. “We remove the stress out of your move”!<br><br><br></p>
                     </div>

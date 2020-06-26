@@ -163,7 +163,7 @@ require_once 'inc/required/detect.php';
                     <section id="appSection">    
                     <div id="backgrounddiv">
                         <div class="container">
-                            <div class="row" style="margin-top:44px;">
+                            <div class="row" style="margin-top:100px;">
                             <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Please Provide details for the<br><span style="color:#BF3838">Collection Address</span><br/>of your <span style="color:#BF3838"><?php echo $_SESSION['relocationType'];?></span> Move Requirements</h1><p style="text-align:center; color:#4A4A4A">
                 <!--    This is a short and straight to the point sub-headline talking about your application page!
                 -->           <br/></p>
@@ -200,7 +200,7 @@ require_once 'inc/required/detect.php';
                                             <div class="form-group"><label>Country *</label>
                                                 <input name="cCountry" class="form-control" id="countryIdP" value="';
                                                 if(isset($_SESSION['cCountry'])) echo $_SESSION['cCountry'];
-                                                echo '">
+                                                echo '" required>
                                             </div>';
                                             } 
 
@@ -221,7 +221,7 @@ require_once 'inc/required/detect.php';
                                            <div class="form-group"><label>Province *</label>
                                                 <input name="cProvince" class="form-control" id="stateIdP" value="';
                                                 if(isset($_SESSION['cProvince'])) echo $_SESSION['cProvince'];
-                                                echo '">
+                                                echo '" required>
                                             </div>';
                                        }
                                     ?>
@@ -239,7 +239,7 @@ require_once 'inc/required/detect.php';
                                         <div class="form-group"><label>Town / City *</label>
                                                 <input name="cCity" class="cities form-control" id="cityIdP" value="'; 
                                                 if(isset($_SESSION['cCity'])) echo $_SESSION['cCity'];
-                                                echo '">
+                                                echo '" required>
                                         </div>';
                                             
 

@@ -197,7 +197,7 @@ require_once 'inc/required/detect.php';
                     <section id="appSection">    
                     <div id="backgrounddiv">
                         <div class="container">
-                            <div class="row" style="margin-top:44px;">
+                            <div class="row" style="margin-top:100px;">
                                 <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Please Select all the<br><span style="color:#BF3838">Services</span><br/> you are interested in.</h1><p style="text-align:center; color:#4A4A4A">
                                     <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;margin: 0px 17px;"></h1>
                                 </div>
@@ -235,7 +235,7 @@ require_once 'inc/required/detect.php';
                                             <option value="Wrapping Services" <?php if(isset($_SESSION['wrapping']) && $_SESSION['wrapping'] == "1") echo "selected";?>>Wrapping Services</option>
                                             <option value="Packing services" <?php if(isset($_SESSION['packing']) && $_SESSION['packing'] == "1") echo "selected";?>>Packing services</option>
                                             <option value="Insurance" <?php if(isset($_SESSION['insurance']) && $_SESSION['insurance'] == "1") echo "selected";?>>Insurance</option>
-                                            <option value="No Other Services" <?php if(isset($_SESSION['none']) && $_SESSION['none'] == "1") echo "selected";?>>No Other Services</option>
+                                            <option value="No Other Services" <?php if(isset($_SESSION['none']) && $_SESSION['none'] == "1") echo "selected";?>>No Other Services (This will clear all selected services if selected)</option>
                                         </select>
                                     </div>    
 

@@ -20,8 +20,6 @@ $mail->From = 'donotreply@demoprojects.co.za';
 $mail->FromName = 'Do not reply - Relocation Stration';
 
 
-
-
 $mail2 = new PHPMailer;
 $mail2->IsSMTP();                                                    // Set mailer to use SMTP
 
@@ -40,4 +38,12 @@ $mail2->Port = "25";                               // SMTP password
 // Set who the email is coming from
 $mail2->From = 'donotreply@demoprojects.co.za';
 $mail2->FromName = 'Do not reply - Relocation Stration';
+
+
+// include_once '../portal/inc/required/fetchMailListAndConfig.php';
+
+
+
+
+
 ?>

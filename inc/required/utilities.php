@@ -280,6 +280,26 @@ function denyDuplicateAT($db, $appID, $appType){
 }
 
 
+function denyDuplicateSendQueue($db, $appID, $providerID){
+ 
+	try{
+		$sqlQuery = "SELECT * FROM sendQueue WHERE appID =:appID AND providerID =:providerID";
+		$statement = $db->prepare($sqlQuery);
+		$statement->execute(array(':appID' => $appID, ':providerID' => $providerID));
+		if($row = $statement->fetch()){
+            
+            return true;    
+		} else {
+
+            return false;
+        }
+	}catch (PDOException $ex){
+        //handle exception
+        $_SESSION['hasEntry'] = "error" . $ex;
+	}
+}
+
+
 
 
 

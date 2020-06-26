@@ -4,6 +4,10 @@
     float:right;
     color: crimson;
 }
+
+section#appSection {
+    background: crimson;
+}
 </style>
 
 <?php 
@@ -14,7 +18,7 @@ include_once 'inc/required/database.php';
 include_once 'inc/required/utilities.php';
 
 $page = $_SESSION['relocationType'] . " Delivery";
-$tranLoc = "col";
+$tranLoc = "del";
 
 require_once 'inc/required/detect.php';
 
@@ -164,7 +168,7 @@ require_once 'inc/required/detect.php';
                     <section id="appSection">    
                     <div id="backgrounddivred">
                         <div class="container">
-                            <div class="row" style="margin-top:44px;">
+                            <div class="row" style="margin-top:100px;">
                             <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Please Provide details for the<br><span style="color:#E9ECEF">Delivery Address</span><br/>of your <span style="color:#E9ECEF"><?php echo $_SESSION['relocationType'];?></span> Move Requirements</h1><p style="text-align:center; color:#4A4A4A">
                 <!--    This is a short and straight to the point sub-headline talking about your application page!
                 -->           <br/></p>
@@ -200,8 +204,13 @@ require_once 'inc/required/detect.php';
                                         <?php 
                                               } else {
                                         ?>
+                                        <style type="text/css">
+                                            .noedit {
+                                                pointer-events: none;
+                                            }
+                                        </style>
                                             <div class="form-group"><label>Country *</label>
-                                                <select name="dCountry" class="countries order-alpha presel-ZA form-control" id="countryId">
+                                                <select name="dCountry" class="countries order-alpha presel-ZA form-control noedit" id="countryId">
                                                     <option value = "">Country</option>
                                                 </select>
                                             </div>

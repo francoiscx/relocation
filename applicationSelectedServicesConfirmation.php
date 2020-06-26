@@ -42,7 +42,7 @@ require_once 'inc/required/detect.php';
                     <section id="appSection">    
                     <div id="backgrounddiv">
                         <div class="container">
-                            <div class="row" style="margin-top:44px;">
+                            <div class="row" style="margin-top:100px;">
                                 <div class="col-md-12">
                                     <center><h4>
                                         <?php

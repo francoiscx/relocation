@@ -10,6 +10,7 @@ include_once 'inc/required/utilities.php';
 unset($_POST['submApp']);
 
 
+
 if(isset($_POST['submitRequestBtn'])) {
     echo '
     <script>
@@ -105,6 +106,7 @@ i.icon.ion-social-instagram {
 <?php
 if(!isset($emailSent)){
 include 'inc/required/head.php';
+include_once './portal/inc/required/whoToSendToo.php';
 include_once 'phpmailer/mail_sender/emailReq.php';
 $emailSent = 1;
 }
@@ -117,7 +119,7 @@ $emailSent = 1;
     <section id="appSection">    
     <div id="backgrounddiv">
         <div class="container">
-            <div class="row" style="margin-top:44px;">
+            <div class="row" style="margin-top:100px;">
                 <div class="col-md-12"><h1 id="partners" style="text-align:center; color:#34495E; font-weight: 800">Thank you for submitting your<br><span style="color:crimson"><?php echo $_SESSION['relocationType'];?> Moving Requirements</span><br/>you will soon start to receive your <span style="color:crimson">Quotations</span> </h1><p style="text-align:center; color:#4A4A4A">
                     <br/></p>
                     <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large;"></h1></div>

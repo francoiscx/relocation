@@ -9,6 +9,7 @@ if(!isset($_SESSION['mailSent'])) {
    $appWork = $_SESSION['appWork'];
    $link = $_SESSION['inventoryUploadLink'];
    $link = "http://localhost/relocation/inventoryUpload.php?id=" . $link;
+   $partnersSent = $_SESSION['partnersSent'];
    $agentname = "Legend's";
 
    if(isset($_SESSION['pet']) || isset($_SESSION['car']) || isset ($_SESSION['courier']) || isset($_SESSION['shuttle']) || isset($_SESSION['cleaning']) || isset($_SESSION['wrapping']) || isset($_SESSION['packing'])) {
@@ -92,7 +93,7 @@ if(!isset($_SESSION['mailSent'])) {
    $message = str_replace('%appCell%', $appCell, $message);
    $message = str_replace('%appWork%', $appWork, $message);
    $message = str_replace('%appType%', $relocationType, $message);
-
+   $message = str_replace('%partnersSent%', $partnersSent, $message);
 
    $message = str_replace('%addedServices%', $addedServices, $message);
    if(isset($pet)) $message = str_replace('%pet%', $pet, $message);
@@ -186,8 +187,12 @@ if(!isset($_SESSION['mailSent'])) {
 
 
    // Retrieve the email template required
+   if($relocationType != "I'm not relocating, just need something moved") {
    $message2 = file_get_contents('phpmailer/email_templates/emailRecToClient.html');
-
+   } else {
+   $message2 = file_get_contents('phpmailer/email_templates/emailRecToClientNoInventory.html');
+   }
+   
    // Replace the % with the actual information
    $message2 = str_replace('%appName%', $appName, $message2);
    $message2 = str_replace('%appSurname%', $appSurname, $message2);
@@ -285,6 +290,10 @@ if(!isset($_SESSION['mailSent'])) {
       echo 'Mailer Error: ' . $mail2->ErrorInfo;
       exit;
    }
+
+
+
+   // include_once './portal/inc/required/fetchMailListAndBuildMails.php';
 
 $_SESSION['mailSent'] = 1;
 }
