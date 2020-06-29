@@ -1,7 +1,7 @@
 <?php
-include_once '../relocation/inc/required/sessions.php';
-include_once '../relocation/inc/required/database.php';
-include_once '../relocation/inc/required/utilities.php';
+include_once './inc/required/sessions.php';
+include_once './inc/required/database.php';
+include_once './inc/required/utilities.php';
 
 $active = 1;
 $trial = 0;

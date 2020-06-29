@@ -1,16 +1,17 @@
 <?php
-//initialize variables to hold connection parameters
-//LOCALHOST
-$user = 'francoiscx';
-$dsn = 'mysql:host=localhost; dbname=removals';
-$password = 'Fran5048!';
 
+// echo "DB CONNECTION INCLUDED";
+// Initialize variables to hold connection parameters
+
+// LOCALHOST
+// $user = 'francoiscx';
+// $dsn = 'mysql:host=localhost; dbname=removals';
+// $password = 'Fran5048!';
 
 //LIVE SERVER
-//$user = '7262removals';
-//$dsn = 'mysql:host=localhost; dbname=7262_removals';
-//$password = 'ZWsfyqFf8QNU';
-
+$user = 'relocation_stationDBUser';
+$dsn = 'mysql:host=localhost; dbname=relocation_stationDB';
+$password = 'FrancoisJoubert84@RelocationStation';
 
 try{
     //create an instance of PDO calss with the required parameters
@@ -25,18 +26,17 @@ try{
 } catch (PDOException $ex) {
     //display error message
     //echo "Connection failed ".$ex->getMessage();
-    
 }
 
-//LOCAL HOST
-$servername = "localhost";
-$username = "removals";
-$password = "Fran5048!";
+// LOCAL HOST
+// $servername = "localhost";
+// $username = "removals";
+// $password = "Fran5048!";
 
-//LIVE SERVER
-//$servername = "7262_removals";
-//$username = "7262removals";
-//$password = "ZWsfyqFf8QNU";
+// LIVE SERVER
+$servername = "localhost";
+$username = "relocation_stationDBUser";
+$password = "FrancoisJoubert84@RelocationStation";
 
 
 // Create connection

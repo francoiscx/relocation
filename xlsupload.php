@@ -38,7 +38,7 @@ $_SESSION['fileUploadResult'] = "Sorry, your file was not uploaded.";
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     
     $newFileName = $uploadLink . "_" . basename( $_FILES["fileToUpload"]["name"]);    
-    $inventoryLink = "http://localhost/relocation/uploads/" . $newFileName;
+    $inventoryLink = "https://demoprojects.relocation.co.za/uploads/" . $newFileName;
     $inventoryUploadLink = $_SESSION['uploadLink'];
 
     $timeUpdate = date_default_timezone_set('Africa/Johannesburg');

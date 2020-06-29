@@ -1,6 +1,5 @@
 <?php
 $siteSection = "Partners";
-
 include_once 'inc/required/head.php';
 $_SESSION['lastPageVisited'] = $siteSection;
 

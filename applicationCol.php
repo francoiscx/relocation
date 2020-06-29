@@ -152,7 +152,7 @@ require_once 'inc/required/detect.php';
                     <style>
                         .removeItem {
                             margin: -43px 20px 60px 0px!important;
-                            flot:right;
+                            float:right;
                             color: crimson;
                         }
                     </style>

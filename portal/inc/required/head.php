@@ -5,8 +5,7 @@ $siteTitle= "Relocation Station";
       include_once '../inc/required/utilities.php';
       include_once '../inc/required/sessions.php';
       include_once '../inc/required/database.php';
-?>
-<?php
+
 
       if(!isset($_SESSION['userID'])) header("Location: /login.php");
 

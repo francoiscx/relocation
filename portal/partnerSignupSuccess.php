@@ -4,7 +4,7 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-12"><h1 id="partners" style="text-align:center">This application was successfully added to the review queue.<br/></h1>
+                    <div class="col-md-12"><h1 id="partners" style="text-align:center">Your application was successfully added to the review queue.<br/></h1>
                         <p id="partners" style="text-align:center">Submission was added.<br>Please head over to the new applicatins page to activate this partner.</p>
 
                         <br><br>

@@ -1,0 +1,12 @@
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: relocationType in /home/relocation/public_html/demoprojects/applicationReview.php on line 235
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appName in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appSurname in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appEmail in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appEmail in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appCell in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appCell in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appWork in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: appWork in /home/relocation/public_html/demoprojects/applicationReview.php on line 249
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: relocationType in /home/relocation/public_html/demoprojects/applicationReview.php on line 250
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: cFloor in /home/relocation/public_html/demoprojects/applicationReview.php on line 319
+[29-Jun-2020 07:44:32 UTC] PHP Notice:  Undefined index: dFloor in /home/relocation/public_html/demoprojects/applicationReview.php on line 418

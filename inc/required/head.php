@@ -74,6 +74,11 @@ header("Location: index.php");
 </head>
 
 <body>
+    <style>
+    html {
+    overflow-x: hidden;
+}
+</style>
     <nav class="navbar navbar-light navbar-expand-md">
         <div class="container-fluid">
                 <div id="logotop">

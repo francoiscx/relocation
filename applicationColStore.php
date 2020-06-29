@@ -205,10 +205,10 @@
                         if($_SESSION['cTruck'] == "No") {
                              
                             $cTruck = $_SESSION['cTruck'];
-                            if(!isset($cTruck)) $cTruck = 0;
-                            if(!isset($cTruckTI)) $cTruckTI = 0;
-                            if(!isset($cTruckHV)) $cTruckHV = 0;
-                            if(!isset($cTruckTV)) $cTruckTV = 0;
+                            if(!isset($cTruck) || $cTruck =="") $cTruck = 0;
+                            if(!isset($cTruckTI) || $cTruckTI =="") $cTruckTI = 0;
+                            if(!isset($cTruckHV) || $cTruckHV =="") $cTruckHV = 0;
+                            if(!isset($cTruckTV) || $cTruckTV =="") $cTruckTV = 0;
                             //SQL statement to update info
                             $sqlUpdate = "UPDATE app_details SET c_truck =:cTruck, c_truck_t_i = :cTruckTI, c_truck_h_v = :cTruckHV, c_truck_t_v = :cTruckTV WHERE app_detail_id =:appDetailsID";
         

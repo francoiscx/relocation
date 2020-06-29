@@ -1,12 +1,8 @@
-<style>.box-body {
-    height: 100%;
-}
-</style>
 <?php
 $siteSection = "Workbench";
-
-
+      
 include_once 'inc/required/head.php';
+
 
 $_SESSION['lastPageVisited'] = $siteSection;
 unset($_SESSION['begStamp']);
@@ -15,7 +11,10 @@ unset($_SESSION['begStamp']);
 <title><?php echo $siteTitle?> | <?php echo $siteSection?> </title>
 
 </head>
-
+<style>.box-body {
+    height: 100%;
+}
+</style>
 <body class="fixed sidebar-collapse">
 <div class="wrapper">
 
@@ -68,8 +67,10 @@ unset($_SESSION['begStamp']);
           <!-- User Account: style can be found in dropdown.less -->
           
 <?php
-if($_SESSION['showProfile'] == 1) {
+if(isset($_SESSION['showProfile'])) {
+    if($_SESSION['showProfile'] == 1) {
     include_once 'inc/navbar_user.php';
+    }
 }
 ?>
 

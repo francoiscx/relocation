@@ -37,6 +37,28 @@ foreach($hasInventoryLink->fetchAll() as $hasInventoryLink):
     // echo $applicant_id;
 endforeach; 
 
+if(!isset($_SESSION['userIDss'])) {
+
+                  $sqlQuery = "SELECT * FROM account WHERE accountID = :accountID";
+                  $statement = $db->prepare($sqlQuery);
+                  $statement->execute(array(':accountID' => 1));
+
+                    while($row = $statement->fetch()){
+
+                      $cloudinaryName = $row['cloudinary_name'];
+                      if(isset($cloudinaryName)) {$_SESSION['cloudinaryName'] = $cloudinaryName;}
+                      
+                      $cloudinaryKey = $row['cloudinary_key'];
+                      if(isset($cloudinaryKey)) {$_SESSION['cloudinaryKey'] = $cloudinaryKey;}
+
+                      $cloudinarySecret = $row['cloudinary_secret'];    
+                      if(isset($cloudinarySecret)) {$_SESSION['cloudinarySecret'] = $cloudinarySecret;}
+
+                    }
+                }
+
+
+
 require './cloudinary/autoload.php'; 
 
 require './cloudinary/src/Helpers.php'; //optional for using the cl_image_tag and cl_video_tag helper methods

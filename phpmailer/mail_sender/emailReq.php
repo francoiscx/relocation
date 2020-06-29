@@ -8,7 +8,7 @@ if(!isset($_SESSION['mailSent'])) {
    $appCell = $_SESSION['appCell'];
    $appWork = $_SESSION['appWork'];
    $link = $_SESSION['inventoryUploadLink'];
-   $link = "http://localhost/relocation/inventoryUpload.php?id=" . $link;
+   $link = "https://demoprojects.relocation.co.za/inventoryUpload.php?id=" . $link;
    if(isset($_SESSION['partnersSent'])) $partnersSent = $_SESSION['partnersSent'];
    $agentname = "Legend's";
 
@@ -93,7 +93,7 @@ if(!isset($_SESSION['mailSent'])) {
    $message = str_replace('%appCell%', $appCell, $message);
    $message = str_replace('%appWork%', $appWork, $message);
    $message = str_replace('%appType%', $relocationType, $message);
-   $message = str_replace('%partnersSent%', $partnersSent, $message);
+   if(isset($partnersSent)) $message = str_replace('%partnersSent%', $partnersSent, $message);
 
    $message = str_replace('%addedServices%', $addedServices, $message);
    if(isset($pet)) $message = str_replace('%pet%', $pet, $message);
@@ -258,7 +258,7 @@ if(!isset($_SESSION['mailSent'])) {
 
    // Setup PHPMailer
    $mail2->IsSMTP();                                        // Set mailer to use SMTP
-   $mail2->setFrom('donotreply@demoprojects.co.za', 'Do not reply - Relocation Stration');
+   $mail2->setFrom('donotreply@demoprojects.relocation.co.za', 'Do not reply - Relocation Stration');
 
    // Setup PHPMailer
    include 'phpmailer/MailerConfig.php';
