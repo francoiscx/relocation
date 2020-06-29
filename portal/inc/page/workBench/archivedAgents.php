@@ -58,9 +58,10 @@
             
          <?php
     $active = 0;  
+    $new = 0;
 
     //COUNT HOW MANY USERS NEED TO BE DISPLAYED
-    $sqlQuery = "SELECT count(*) from service_providers WHERE active = $active";
+    $sqlQuery = "SELECT count(*) from service_providers WHERE active = $active AND new = $new";
     $result = $db->prepare($sqlQuery); 
     $result->execute(array(':active' => $active)); 
     $agentInfo = $result->fetchColumn();
@@ -101,7 +102,7 @@
                                     FROM
                                         service_providers
                                     WHERE
-                                        active = $active
+                                        active = $active AND new = $new
                                     ORDER BY companyName DESC, companyRegistrationNumber, title, firstname, lastname ASC
                                 ";
                          

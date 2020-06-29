@@ -9,7 +9,7 @@ if(!isset($_SESSION['mailSent'])) {
    $appWork = $_SESSION['appWork'];
    $link = $_SESSION['inventoryUploadLink'];
    $link = "http://localhost/relocation/inventoryUpload.php?id=" . $link;
-   $partnersSent = $_SESSION['partnersSent'];
+   if(isset($_SESSION['partnersSent'])) $partnersSent = $_SESSION['partnersSent'];
    $agentname = "Legend's";
 
    if(isset($_SESSION['pet']) || isset($_SESSION['car']) || isset ($_SESSION['courier']) || isset($_SESSION['shuttle']) || isset($_SESSION['cleaning']) || isset($_SESSION['wrapping']) || isset($_SESSION['packing'])) {

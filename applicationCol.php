@@ -1,14 +1,4 @@
-<style>
-.removeItem {
-    margin: -43px 20px 60px 0px!important;
-    float:right;
-    color: crimson;
-}
-</style>
-
 <?php 
-
-
 include_once 'inc/required/sessions.php';
 include_once 'inc/required/database.php';
 include_once 'inc/required/utilities.php';
@@ -159,7 +149,13 @@ require_once 'inc/required/detect.php';
                             </div>
                         </div>
                     </nav>
-                  
+                    <style>
+                        .removeItem {
+                            margin: -43px 20px 60px 0px!important;
+                            flot:right;
+                            color: crimson;
+                        }
+                    </style>
                     <section id="appSection">    
                     <div id="backgrounddiv">
                         <div class="container">

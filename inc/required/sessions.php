@@ -10,4 +10,6 @@ $universalName = "Removals";
 $universalURL = "http://demoprojects.relocation.co.za";
 $adminName = "Removals Administration";
 $adminURL = "http://demoprojects.relocation.co.za/internal.php";
+
+// Print_r ($_SESSION);
 ?>

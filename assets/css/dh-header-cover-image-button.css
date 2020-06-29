@@ -76,7 +76,7 @@
 }
 
 .parallax {
-  background-image: url("http://heavenlygrant.com/legend/banner4.png");
+  background-image: url("assets/img/banner4.png");
   min-height: 600px;
   background-attachment: fixed;
   background-position: center;

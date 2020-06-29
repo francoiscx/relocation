@@ -203,7 +203,12 @@
 
                     if(isset($_SESSION['dTruck'])) {
                         if($_SESSION['dTruck'] == "No") {
+                            
                             $dTruck = $_SESSION['dTruck'];
+                            if(!isset($dTruck) || $dTruck =="") $dTruck = 0;
+                            if(!isset($dTruckTI) || $dTruckTI =="") $dTruckTI = 0;
+                            if(!isset($dTruckHV) || $dTruckHV =="") $dTruckHV = 0;
+                            if(!isset($dTruckTV) || $dTruckTV =="") $dTruckTV = 0;
                             //SQL statement to update info
                             $sqlUpdate = "UPDATE app_details SET d_truck =:dTruck, d_truck_t_i = :dTruckTI, d_truck_h_v = :dTruckHV, d_truck_t_v = :dTruckTV WHERE app_detail_id =:appDetailsID";
         
@@ -366,6 +371,6 @@
 
     if(isset($_SESSION['updated'])) {
         unset($_SESSION['updated']);
-        header("Location: applicationReview.php");
+        echo '<script>window.location.href = "applicationReview.php"</script>';
     }
 }?>

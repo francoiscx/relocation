@@ -4,13 +4,13 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-12"><h1 id="partners" style="text-align:center">Your application was successfully submitted.<br/></h1>
-                        <p id="partners" style="text-align:center">We received your application.<br>After reviewing, we will notify you as to whether it was successful or not.</p>
+                    <div class="col-md-12"><h1 id="partners" style="text-align:center">This application was successfully added to the review queue.<br/></h1>
+                        <p id="partners" style="text-align:center">Submission was added.<br>Please head over to the new applicatins page to activate this partner.</p>
 
                         <br><br>
 
                         <div>
-                            <center><p><?php echo $_SESSION['app_title'] . ' ' . $_SESSION['app_lastname'] . ', your application  for ' . $_SESSION['app_companyName'] . ' with registration number ' . $_SESSION['app_companyRegistrationNumber'] . ' will be reviewed for eligibility.' ;?></p></center>
+                            <center><p><?php echo "The application for " . $_SESSION['app_title'] . ' ' . $_SESSION['app_lastname'] . ', relating to company named ' . $_SESSION['app_companyName'] . ' with registration number ' . $_SESSION['app_companyRegistrationNumber'] . ' was added to new applications.' ;?></p></center>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                         <div class="col-md-6">
                         
 
-                            <button class="btn btn-primary" id="goBackHome" name="goBackHome" <?php if(isset($notmobile)) echo 'style="float: right;margin-right:-150px;"';?>>Go back home</button>
+                            <button class="btn btn-primary" id="goBackHome" name="goBackHome" <?php if(isset($notmobile)) echo 'style="float: right;margin-right:-150px;"';?>>Go to New Appllications page</button>
                                                   
                       
                         <h1 class="text-left" style="color: rgba(221,27,61,1.00);font-size: x-large; margin: 0px 17px;"></h1>
@@ -37,7 +37,7 @@
 
 <script type="text/javascript">
     document.getElementById("goBackHome").onclick = function () {
-        location.replace("index.php");
+        location.replace("/portal/index.php?new=1");
     };
 </script>
 

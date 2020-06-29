@@ -1,32 +1,4 @@
-<style>
-.removeItem {
-    margin: -43px 20px 60px 0px!important;
-    float:right;
-    color: crimson;
-}
-
-    h1.text-center.aos-init.aos-animate {
-        color: white;
-    }
-
-    .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
-        width: 100%;
-    }
-
-    button.btn.dropdown-toggle.bs-placeholder.btn-light {
-        min-height: 40px;
-    }
-
-    .container {
-        margin-top: 100px;
-    }
-    </style>
-
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include_once 'inc/required/sessions.php';
 include_once 'inc/required/database.php';
 include_once 'inc/required/utilities.php';
@@ -112,6 +84,30 @@ i.icon.ion-social-instagram {
     }
 }
 </style>
+
+<style>
+.removeItem {
+    margin: -43px 20px 60px 0px!important;
+    float:right;
+    color: crimson;
+}
+
+    h1.text-center.aos-init.aos-animate {
+        color: white;
+    }
+
+    .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+        width: 100%;
+    }
+
+    button.btn.dropdown-toggle.bs-placeholder.btn-light {
+        min-height: 40px;
+    }
+
+    .container {
+        margin-top: 100px;
+    }
+    </style>
 
 
 <?php include 'inc/required/head.php';
