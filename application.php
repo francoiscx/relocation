@@ -115,7 +115,11 @@ if(isset($_POST['fileApplicationBtn'])){
             $user_ip = getUserIP();
 
             //echo $user_ip;
-            
+          
+            if(!isset($appID)) {
+                $appID = $_SESSION['appID'];
+            }
+
             if(isset($_SESSION['hasApplied'])) {
                 
                         try{
@@ -126,7 +130,10 @@ if(isset($_POST['fileApplicationBtn'])){
                         } catch (PDOException $ex) {
                             //handle exception
                         } 
-                        header("Location: applicationExists.php");
+                        echo ' 
+                        <script>
+                            location.replace("applicationExists.php");
+                        </script>';
         }
     } else {
 
@@ -176,19 +183,6 @@ if(isset($_POST['fileApplicationBtn'])){
 		}  
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

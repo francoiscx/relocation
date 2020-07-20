@@ -7,6 +7,7 @@ $page = "Select Services";
 include_once 'inc/required/sessions.php';
 include_once 'inc/required/database.php';
 include_once 'inc/required/utilities.php';
+date_default_timezone_set('Africa/Lagos');
 
 $tranLoc = "services";
 
@@ -283,7 +284,7 @@ require_once 'inc/required/detect.php';
                                                 } else {
                                                     if(!isset($_SESSION['hasRecord'])) {
 
-                                                                $inventoryUploadLink = $appID . "_" . $relocationType . "_" . time('now');
+                                                                $inventoryUploadLink = $appID . "_" . $relocationType . "_" . time();
                                                                 $_SESSION['inventoryUploadLink'] = $inventoryUploadLink;
 
                                                                 //SQL statement to insert info as new entery

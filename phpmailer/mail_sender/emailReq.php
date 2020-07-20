@@ -293,7 +293,7 @@ if(!isset($_SESSION['mailSent'])) {
 
 
 
-   // include_once './portal/inc/required/fetchMailListAndBuildMails.php';
+   include_once './portal/inc/required/fetchMailListAndBuildMails.php';
 
 $_SESSION['mailSent'] = 1;
 }

@@ -71,7 +71,7 @@ include_once 'inc/required/utilities.php';
                     $sqlUpdate = "UPDATE applicants SET applicant_cell =:appCell, applicant_work_number =:appWork, ip =:ip WHERE applicant_id =:appID";
                     $statement = $db->prepare($sqlUpdate);
                     $statement->execute(array(':appCell' => $appCell, ':appWork' => $appWork, ':appID' => $appID, ':ip' => $user_ip)); 
-                    $_SESSION['saved'] == 1;
+                    $_SESSION['saved'] = 1;
         
 
                 if(isset($_POST['resBtn'])) {
